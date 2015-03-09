@@ -13,3 +13,12 @@ Template.hello.events({
     }
 });
 
+angular.module('rsms',[
+    'angular-meteor',
+    'famous.angular'
+])
+    .config(function(){})
+    .run(function(){})
+    .controller('AppCtrl', ['$scope', function AppCtrl($scope) {
+
+    }]);
