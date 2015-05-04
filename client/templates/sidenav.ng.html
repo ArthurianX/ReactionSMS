@@ -1,0 +1,97 @@
+<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+    <md-toolbar class="md-theme-light">
+        <h1 class="md-toolbar-tools"><i class="fa fa-connectdevelop"></i> ReactionSMS</h1>
+    </md-toolbar>
+    <md-content ng-controller="SidenavCtrl">
+        <!--<form>
+            <md-input-container>
+                <label for="testInput">Test input</label>
+                <input type="text" id="testInput"
+                       ng-model="data" md-sidenav-focus>
+            </md-input-container>
+        </form>-->
+        <md-list>
+            <md-subheader class="md-no-sticky">Compose a message</md-subheader>
+            <md-list-item class="md-2-line" ng-click="goTo('message')">
+                <md-icon md-font-icon="fa-pencil-square-o" alt="fa" class="fa fa-lg search"></md-icon>
+                <div class="md-list-item-text">
+                    <h3>Compose</h3>
+                    <p>Send a reaction!</p>
+
+                </div>
+            </md-list-item>
+
+            <md-list-item class="md-2-line">
+                <md-icon md-font-icon="fa-clock-o" alt="fa" class="fa fa-lg search"></md-icon>
+                <div class="md-list-item-text">
+                    <h3>Recent</h3>
+                    <p>Recent reactions.</p>
+
+                </div>
+            </md-list-item>
+
+            <md-divider ></md-divider>
+
+
+            <md-list-item class="md-2-line" ng-click="goTo('home')">
+                <md-icon md-font-icon="fa-users" alt="fa" class="fa fa-lg search"></md-icon>
+                <div class="md-list-item-text">
+                    <h3>Contacts</h3>
+                    <p></p>
+
+                </div>
+            </md-list-item>
+
+            <md-divider ></md-divider>
+
+            <md-subheader class="md-no-sticky">Reactions</md-subheader>
+
+            <md-list-item class="md-2-line" ng-click="goTo('reactions')">
+                <md-icon md-font-icon="fa-smile-o" alt="fa" class="fa fa-lg search"></md-icon>
+                <div class="md-list-item-text">
+                    <h3>Reactions</h3>
+                    <p>See the collections.</p>
+                </div>
+            </md-list-item>
+
+            <md-list-item class="md-2-line" ng-click="goTo('favorites')">
+                <md-icon md-font-icon="fa-star-o" alt="fa" class="fa fa-lg search"></md-icon>
+                <div class="md-list-item-text">
+                    <h3>Favorites</h3>
+                    <p>Your favorite reactions.</p>
+                </div>
+            </md-list-item>
+
+            <md-divider ></md-divider>
+
+            <md-subheader class="md-no-sticky">Personalization and more access</md-subheader>
+
+            <md-list-item class="md-2-line" ng-click="goTo('account')">
+                <md-icon md-font-icon="fa-user" alt="fa" class="fa fa-lg search"></md-icon>
+                <div class="md-list-item-text">
+                    <h3>Account</h3>
+                    <p>Create an account to send reactions directly to user's apps and to
+                    access more reactions.</p>
+                </div>
+            </md-list-item>
+
+            <md-divider ></md-divider>
+
+            <md-list-item class="md-2-line" ng-click="goTo('settings')">
+                <md-icon md-font-icon="fa-cog" alt="fa" class="fa fa-lg search"></md-icon>
+                <div class="md-list-item-text">
+                    <h3>Settings</h3>
+                    <p>Over and under the hood settings.</p>
+                </div>
+            </md-list-item>
+
+            <md-list-item class="md-2-line" ng-click="goTo('feedback')">
+                <md-icon md-font-icon="fa-code" alt="fa" class="fa fa-lg search"></md-icon>
+                <div class="md-list-item-text">
+                    <h3>Feedback</h3>
+                    <p>Raise your fist and complain.</p>
+                </div>
+            </md-list-item>
+        </md-list>
+    </md-content>
+</md-sidenav>

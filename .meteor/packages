@@ -7,4 +7,15 @@
 meteor-platform
 autopublish
 insecure
+urigo:angular-ui-router
+accounts-base
+accounts-password
+accounts-facebook
+accounts-twitter
+accounts-google
+accounts-ui
+urigo:angular
+angular:angular-material
+fortawesome:fontawesome
+fourseven:scss
 sgi:famous-angular

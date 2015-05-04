@@ -1,0 +1,41 @@
+<div class="homepage">
+
+    <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="Contacts">
+            <md-content>
+            <!--<md-content class="md-padding">-->
+                <md-input-container class="search-widget md-padding">
+                    <!-- Use floating placeholder instead of label -->
+                    <md-icon md-font-icon="fa-search" alt="fa" class="fa fa-lg search"></md-icon>
+                    <input ng-model="search" type="text" placeholder="Search">
+                </md-input-container>
+                <md-list>
+                    <md-list-item class="md-2-line" ng-repeat="contact in contacts | filter:search" ng-click="composeReaction(contact)">
+                        <img ng-src="{{contact.avatar}}" alt="{{contact.name}}" class="md-avatar">
+                        <div class="md-list-item-text">
+                            <h3>{{contact.name}}</h3>
+                            <p>
+                                {{contact.phone}}
+                            </p>
+                        </div>
+                        <md-divider></md-divider>
+                    </md-list-item>
+                </md-list>
+            </md-content>
+        </md-tab>
+        <md-tab label="RECENT">
+            <md-content class="md-padding">
+
+
+
+            </md-content>
+        </md-tab>
+        <md-tab label="FAVORITE">
+            <md-content class="md-padding">
+
+
+
+            </md-content>
+        </md-tab>
+    </md-tabs>
+</div>

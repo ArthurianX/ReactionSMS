@@ -1,12 +1,26 @@
 <head>
   <title>ReactionSMS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="/">
 </head>
 
-<body>
-    {{> hello}}
-    <div class="main" ng-app="rsms">
+<body ng-controller="AppController" layout="column">
 
-        <fa-app style="height: 200px"><fa-surface fa-background-color="'red'">Hello world</fa-surface></fa-app>
+    <ng-include src="'client/templates/sidenav.ng.html'"></ng-include>
 
-    </div>
+    <md-toolbar md-scroll-shrink layout="row" layout-align="start center" layout-padding>
+        <md-button ng-click="toggleSidenav()"
+                   class="md-secondary hamburger-menu">
+            <i class="fa fa-bars"></i>
+        </md-button>
+        <span flex></span>
+        <span>LOGO</span>
+        <span flex></span>
+        <div class="navbar-right navbar-text">
+            <meteor-include src="loginButtons"></meteor-include>
+        </div>
+    </md-toolbar>
+    <md-content>
+        <div ui-view="main"></div>
+    </md-content>
 </body>
