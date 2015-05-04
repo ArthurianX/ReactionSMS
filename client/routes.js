@@ -13,7 +13,7 @@ angular.module('rsms')
                     }
                 },
                 data: {
-                    pageTitle: 'Account'
+                    pageTitle: 'Account Settings'
                 }
             })
             .state('coach', {
@@ -37,7 +37,7 @@ angular.module('rsms')
                     }
                 },
                 data: {
-                    pageTitle: 'Home'
+                    pageTitle: 'Contacts'
                 }
             })
             .state('intro', {
@@ -49,7 +49,7 @@ angular.module('rsms')
                     }
                 },
                 data: {
-                    pageTitle: 'Intro'
+                    pageTitle: 'Introduction'
                 }
             })
             .state('message', {
@@ -61,7 +61,7 @@ angular.module('rsms')
                     }
                 },
                 data: {
-                    pageTitle: 'Message'
+                    pageTitle: 'Compose'
                 }
             })
             .state('messageto', {
@@ -73,7 +73,7 @@ angular.module('rsms')
                     }
                 },
                 data: {
-                    pageTitle: 'Message'
+                    pageTitle: 'Compose'
                 }
             })
             .state('reactions', {
@@ -86,6 +86,42 @@ angular.module('rsms')
                 },
                 data: {
                     pageTitle: 'Reactions'
+                }
+            })
+            .state('stats', {
+                url: '/stats',
+                views: {
+                    'main': {
+                        controller: 'StatsCtrl',
+                        templateUrl: 'client/views/stats/stats.ng.html'
+                    }
+                },
+                data: {
+                    pageTitle: 'Statistics'
+                }
+            })
+            .state('settings', {
+                url: '/settings',
+                views: {
+                    'main': {
+                        controller: 'SettingsCtrl',
+                        templateUrl: 'client/views/settings/settings.ng.html'
+                    }
+                },
+                data: {
+                    pageTitle: 'Settings'
+                }
+            })
+            .state('feedback', {
+                url: '/feedback',
+                views: {
+                    'main': {
+                        controller: 'FeedbackCtrl',
+                        templateUrl: 'client/views/feedback/feedback.ng.html'
+                    }
+                },
+                data: {
+                    pageTitle: 'Feedback'
                 }
             });
 

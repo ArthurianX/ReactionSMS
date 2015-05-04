@@ -1,29 +1,36 @@
-<div class="messagepage" ng-controller="MessageCtrl as mctrl">
-    <form ng-submit="$event.preventDefault()">
-        <md-autocomplete
-                ng-if="!selectedContact"
-                ng-disabled="mctrl.isDisabled"
-                md-no-cache="true"
+<div class="messagepage" ng-controller="MessageCtrl as mctrl" layout="column" layout-fill>
 
-                md-search-text-change="mctrl.searchTextChange(mctrl.searchText)"
-                md-search-text="mctrl.searchText"
-                md-selected-item-change="mctrl.selectedItemChange(item)"
-                md-items="item in mctrl.querySearch(mctrl.searchText)"
+    <div>
 
-                md-min-length="3"
-                md-autofocus="true"
-                placeholder="Search for a contact">
+        <!-- Autocomplete -->
+        <form ng-submit="$event.preventDefault()">
+            <md-autocomplete
+                    ng-if="!selectedContact"
+                    ng-disabled="mctrl.isDisabled"
+                    md-no-cache="true"
 
-            <md-item-template>
-                <img ng-src="{{item.avatar}}" alt="{{item.name}}" class="md-avatar">
-                <span md-highlight-text="mctrl.searchText" md-highlight-flags="^i">{{item.name}}</span>
-            </md-item-template>
+                    md-search-text-change="mctrl.searchTextChange(mctrl.searchText)"
+                    md-search-text="mctrl.searchText"
+                    md-selected-item-change="mctrl.selectedItemChange(item)"
+                    md-items="item in mctrl.querySearch(mctrl.searchText)"
 
-            <!--<md-not-found>
-                No matches found for "{{mctrl.searchText}}".
-            </md-not-found>-->
+                    md-min-length="3"
+                    md-autofocus="true"
+                    placeholder="Search for a contact">
 
-        </md-autocomplete>
+                <md-item-template>
+                    <img ng-src="{{item.avatar}}" alt="{{item.name}}" class="md-avatar">
+                    <span md-highlight-text="mctrl.searchText" md-highlight-flags="^i">{{item.name}}</span>
+                </md-item-template>
+
+                <!--<md-not-found>
+                    No matches found for "{{mctrl.searchText}}".
+                </md-not-found>-->
+
+            </md-autocomplete>
+        </form>
+
+        <!-- Selected Contact -->
         <div ng-if="selectedContact" class="selected-contact">
             <md-list>
                 <md-list-item class="md-2-line" ng-repeat="contact in selectedContact" ng-click="composeReaction(contact)">
@@ -44,8 +51,25 @@
                 </md-list-item>
             </md-list>
         </div>
-        <div class="reactions">
-            <h2>REACTIONS</h2>
+    </div>
+
+
+
+    <!-- Message - Contact Context -->
+    <div class="actions">
+        <div class="messages" flex>
+            User Messages, if any, come here
         </div>
-    </form>
+
+        <!-- Write Text Message -->
+        <div class="text-message">
+            Text Message
+        </div>
+
+        <!-- Reactions - FAVORITE -->
+        <div class="reactions">
+            REACTIONS
+        </div>
+    </div>
+
 </div>

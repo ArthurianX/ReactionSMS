@@ -15,9 +15,9 @@ angular.module('rsms')
         });
 
         $scope.composeReaction = function(contact) {
-
-            $state.go('messageto', {friend: contact.id})
-
+            setTimeout(function(){
+                $state.go('messageto', {friend: contact.id})
+            }, 200);
         }
 
     }]);
