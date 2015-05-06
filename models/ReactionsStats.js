@@ -1,0 +1,1 @@
+ReactionsStats = new Mongo.Collection("reactionsstats");
