@@ -1,27 +1,24 @@
 angular.module('rsms')
-    .controller('AppController', ['$scope', '$timeout', '$mdSidenav', '$mdUtil', '$log', '$state', function AppController($scope, $timeout, $mdSidenav, $mdUtil, $log, $state) {
-        console.log('App is here');
+    .controller('AppController', ['$scope', '$timeout', '$mdSidenav', '$mdUtil', '$log', '$state', 'userAccount',
+        function AppController($scope, $timeout, $mdSidenav, $mdUtil, $log, $state, userAccount) {
 
+            $scope.toggleSidenav = buildToggler('left');
+            /**
+             * Build handler to open/close a SideNav; when animation finishes
+             * report completion in console
+             */
+            function buildToggler(navID) {
+                var debounceFn =  $mdUtil.debounce(function(){
+                    $mdSidenav(navID)
+                        .toggle()
+                        .then(function () {
+                            $log.debug("toggle " + navID + " is done");
+                        });
+                },300);
+                return debounceFn;
+            }
 
-        $scope.toggleSidenav = buildToggler('left');
-        /**
-         * Build handler to open/close a SideNav; when animation finishes
-         * report completion in console
-         */
-        function buildToggler(navID) {
-            var debounceFn =  $mdUtil.debounce(function(){
-                $mdSidenav(navID)
-                    .toggle()
-                    .then(function () {
-                        $log.debug("toggle " + navID + " is done");
-                    });
-            },300);
-            return debounceFn;
-        }
-
-
-
-    }])
+        }])
     .controller('SidenavCtrl', ['$scope', '$timeout', '$mdSidenav', '$mdUtil', '$log', '$state', function SidenavCtrl($scope, $timeout, $mdSidenav, $mdUtil, $log, $state) {
 
         $scope.goTo = function(to){

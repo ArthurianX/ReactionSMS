@@ -3,165 +3,198 @@ angular.module('rsms')
     .run(function(){})
     .factory('deviceComms', ['$q', function deviceComms($q) {
 
-        var myDetails =  {
-            "id": "554767a8c10d2203851cd3fe",
-            "name": "Hines Stevenson",
-            "phone": "(962) 503-2532",
-            "avatar": "232696161.png"
-        };
-
         var contacts = [
             {
-                "id": "554767a807c613f6b29a8023",
-                "name": "Barker Byrd",
-                "phone": "(844) 496-2835",
-                "avatar": "227074167.png"
+                "id": "554ca079011a4494b31b6ad3",
+                "name": "Cantu Steele",
+                "phone": "(882) 443-2664",
+                "avatar": "224796093.png",
+                "email": "cantusteele@cincyr.com"
             },
             {
-                "id": "554767a8719711af47e48bc3",
-                "name": "Trujillo Luna",
-                "phone": "(999) 449-2043",
-                "avatar": "167259901.png"
+                "id": "554ca079b5dd9aeaa50290f0",
+                "name": "Vaughn Silva",
+                "phone": "(980) 448-3770",
+                "avatar": "157966334.png",
+                "email": "vaughnsilva@cincyr.com"
             },
             {
-                "id": "554767a8d5ae087d5903941c",
-                "name": "Trisha Campbell",
-                "phone": "(968) 423-2077",
-                "avatar": "176663754.png"
+                "id": "554ca079580ca45302d0aecf",
+                "name": "Patsy Brady",
+                "phone": "(948) 568-2481",
+                "avatar": "192388378.png",
+                "email": "patsybrady@cincyr.com"
             },
             {
-                "id": "554767a85e10be4cd8366b00",
-                "name": "Robertson Morgan",
-                "phone": "(982) 547-3567",
-                "avatar": "254341232.png"
+                "id": "554ca0797e2a2a040004a2b9",
+                "name": "Cassandra Hyde",
+                "phone": "(927) 561-2535",
+                "avatar": "201867289.png",
+                "email": "cassandrahyde@cincyr.com"
             },
             {
-                "id": "554767a8ad833c0183247c49",
-                "name": "Glenda Hall",
-                "phone": "(918) 405-2001",
-                "avatar": "205295761.png"
+                "id": "554ca079856eab093b08549a",
+                "name": "Livingston Barber",
+                "phone": "(877) 418-3466",
+                "avatar": "178541537.png",
+                "email": "livingstonbarber@cincyr.com"
             },
             {
-                "id": "554767a8a4ffb34fd490ce44",
-                "name": "Chen Velazquez",
-                "phone": "(890) 449-2074",
-                "avatar": "188868604.png"
+                "id": "554ca079f4e17403c686f356",
+                "name": "Nicholson Bird",
+                "phone": "(937) 570-2503",
+                "avatar": "183548772.png",
+                "email": "nicholsonbird@cincyr.com"
             },
             {
-                "id": "554767a8b8f119d6cbfaf125",
-                "name": "Webb Olsen",
-                "phone": "(906) 504-3045",
-                "avatar": "210177674.png"
+                "id": "554ca079ce2668582bb1b7dd",
+                "name": "Shawn Cherry",
+                "phone": "(813) 536-3028",
+                "avatar": "188468346.png",
+                "email": "shawncherry@cincyr.com"
             },
             {
-                "id": "554767a8eb91841cbcda0337",
-                "name": "Norton Sullivan",
-                "phone": "(811) 557-2116",
-                "avatar": "224663554.png"
+                "id": "554ca079c0f6f2f27f8bb02f",
+                "name": "Welch Alvarez",
+                "phone": "(897) 513-3523",
+                "avatar": "233009487.png",
+                "email": "welchalvarez@cincyr.com"
             },
             {
-                "id": "554767a8bebb2b80c5c5b94b",
-                "name": "Park Patrick",
-                "phone": "(926) 465-2001",
-                "avatar": "251048064.png"
+                "id": "554ca07984782a3f4083ec6c",
+                "name": "Tonya Kline",
+                "phone": "(889) 448-3227",
+                "avatar": "226588855.png",
+                "email": "tonyakline@cincyr.com"
             },
             {
-                "id": "554767a8ba464ce3f8aeb0db",
-                "name": "Karin Marquez",
-                "phone": "(980) 542-2248",
-                "avatar": "225194363.png"
+                "id": "554ca079c124c808cc7a1819",
+                "name": "Clarke Clarke",
+                "phone": "(975) 587-2333",
+                "avatar": "251055588.png",
+                "email": "clarkeclarke@cincyr.com"
             },
             {
-                "id": "554767a87df8882e91176b0f",
-                "name": "Golden Guerra",
-                "phone": "(979) 455-3928",
-                "avatar": "186427371.png"
+                "id": "554ca0792eff28f2d0c0240b",
+                "name": "Misty Mcbride",
+                "phone": "(952) 431-3015",
+                "avatar": "244101301.png",
+                "email": "mistymcbride@cincyr.com"
             },
             {
-                "id": "554767a8d7ea3829315e896c",
-                "name": "Kayla Jacobson",
-                "phone": "(873) 400-2023",
-                "avatar": "233096775.png"
+                "id": "554ca0794abb47bfb7287e73",
+                "name": "Melody Pearson",
+                "phone": "(971) 466-3830",
+                "avatar": "215882732.png",
+                "email": "melodypearson@cincyr.com"
             },
             {
-                "id": "554767a8fe94d07ff0dbe980",
-                "name": "Gilmore Rios",
-                "phone": "(915) 503-2176",
-                "avatar": "167615980.png"
+                "id": "554ca079a132b323e90c8598",
+                "name": "Carole Paul",
+                "phone": "(865) 595-2294",
+                "avatar": "222483211.png",
+                "email": "carolepaul@cincyr.com"
             },
             {
-                "id": "554767a8fc12dff1016a7ea5",
-                "name": "Whitfield Rojas",
-                "phone": "(984) 539-3215",
-                "avatar": "172040453.png"
+                "id": "554ca07991c390c44a7c57f6",
+                "name": "Francis Weaver",
+                "phone": "(950) 461-3378",
+                "avatar": "248416906.png",
+                "email": "francisweaver@cincyr.com"
             },
             {
-                "id": "554767a8e659b96af75fbbab",
-                "name": "Jaime Leonard",
-                "phone": "(860) 570-2913",
-                "avatar": "211934948.png"
+                "id": "554ca0799d15ef8a6d9879d9",
+                "name": "Chris Meyer",
+                "phone": "(992) 533-2756",
+                "avatar": "184639961.png",
+                "email": "chrismeyer@cincyr.com"
             },
             {
-                "id": "554767a8c7b811088d9ec7c1",
-                "name": "Shields Day",
-                "phone": "(843) 500-3847",
-                "avatar": "206933903.png"
+                "id": "554ca07979fca6c05eb40eb4",
+                "name": "Merle Henry",
+                "phone": "(800) 465-3184",
+                "avatar": "177868229.png",
+                "email": "merlehenry@cincyr.com"
             },
             {
-                "id": "554767a81921a5ee6c9849f6",
-                "name": "Zamora Woodward",
-                "phone": "(945) 539-2642",
-                "avatar": "202066914.png"
+                "id": "554ca07999080dec954fcb5b",
+                "name": "Berger Day",
+                "phone": "(863) 590-2609",
+                "avatar": "169077618.png",
+                "email": "bergerday@cincyr.com"
             },
             {
-                "id": "554767a890d4689a36294f34",
-                "name": "Galloway Stevens",
-                "phone": "(863) 473-2877",
-                "avatar": "247165049.png"
+                "id": "554ca079965cdeda307c4359",
+                "name": "Cherie Caldwell",
+                "phone": "(965) 576-2465",
+                "avatar": "252492490.png",
+                "email": "cheriecaldwell@cincyr.com"
             },
             {
-                "id": "554767a8a802d7916ec7c91c",
-                "name": "Hallie Sloan",
-                "phone": "(915) 597-2861",
-                "avatar": "180855475.png"
+                "id": "554ca07955cdfecf0cc85916",
+                "name": "Christa Sharpe",
+                "phone": "(907) 576-2212",
+                "avatar": "213666799.png",
+                "email": "christasharpe@cincyr.com"
             },
             {
-                "id": "554767a834d2d9c8d76edca8",
-                "name": "Emilia Gutierrez",
-                "phone": "(827) 568-3599",
-                "avatar": "226872359.png"
+                "id": "554ca079fd1124f3cf05dc15",
+                "name": "Sutton Curry",
+                "phone": "(912) 417-2421",
+                "avatar": "201400103.png",
+                "email": "suttoncurry@cincyr.com"
             },
             {
-                "id": "554767a8ff17525517da7329",
-                "name": "Kathrine Stein",
-                "phone": "(962) 400-3045",
-                "avatar": "195960063.png"
+                "id": "554ca07950118c203b85d6e0",
+                "name": "Ochoa Small",
+                "phone": "(801) 445-3421",
+                "avatar": "157695553.png",
+                "email": "ochoasmall@cincyr.com"
             },
             {
-                "id": "554767a89a5b7a92e5b61950",
-                "name": "Cherie Cooke",
-                "phone": "(908) 572-3324",
-                "avatar": "185491301.png"
+                "id": "554ca07990d824940afc35de",
+                "name": "Knowles Banks",
+                "phone": "(806) 529-3039",
+                "avatar": "236679678.png",
+                "email": "knowlesbanks@cincyr.com"
             },
             {
-                "id": "554767a810799c1598cc5c0b",
-                "name": "Mcclain Randall",
-                "phone": "(949) 584-2966",
-                "avatar": "243843886.png"
+                "id": "554ca079598b045f62555356",
+                "name": "Inez Tran",
+                "phone": "(906) 465-2318",
+                "avatar": "196490855.png",
+                "email": "ineztran@cincyr.com"
             },
             {
-                "id": "554767a808c02877e6d5ddad",
-                "name": "Elaine Nichols",
-                "phone": "(813) 424-3018",
-                "avatar": "171518734.png"
+                "id": "554ca079feb95757f3ac5e4f",
+                "name": "Freida Welch",
+                "phone": "(940) 464-2198",
+                "avatar": "230823311.png",
+                "email": "freidawelch@cincyr.com"
             },
             {
-                "id": "554767a8c10d2203851cd3fe",
-                "name": "Hines Stevenson",
-                "phone": "(962) 503-2532",
-                "avatar": "232696161.png"
+                "id": "554ca0795b11854b8b3c7291",
+                "name": "Bethany Rasmussen",
+                "phone": "(902) 432-2486",
+                "avatar": "183077862.png",
+                "email": "bethanyrasmussen@cincyr.com"
+            },
+            {
+                "id": "554ca079b53273a310df90c4",
+                "name": "Clarice Wheeler",
+                "phone": "(834) 564-3363",
+                "avatar": "246842382.png",
+                "email": "claricewheeler@cincyr.com"
             }
         ];
+
+        var myDetails =  {
+            "id": contacts[Math.floor(Math.random() * (15 - 1)) + 1].id,
+            "name": contacts[Math.floor(Math.random() * (15 - 1)) + 1].name,
+            "phone": contacts[Math.floor(Math.random() * (15 - 1)) + 1].phone,
+            "avatar": contacts[Math.floor(Math.random() * (15 - 1)) + 1].avatar,
+            "email": contacts[Math.floor(Math.random() * (15 - 1)) + 1]['email']
+        };
 
         var getContacts = function(){
 
@@ -169,23 +202,27 @@ angular.module('rsms')
 
             setTimeout(function() {
                 deferred.notify('About to greet ' + name + '.');
-
                 deferred.resolve(contacts);
-
-                /*if (okToGreet(name)) {
-                    deferred.resolve('Hello, ' + name + '!');
-                } else {
-                    deferred.reject('Greeting ' + name + ' is not allowed.');
-                }*/
             }, 1000);
 
             return deferred.promise;
-
         };
 
+        var getUser = function(){
+
+            var deferred = $q.defer();
+
+            setTimeout(function() {
+                deferred.notify('About to greet ' + name + '.');
+                deferred.resolve(myDetails);
+            }, 1000);
+
+            return deferred.promise;
+        };
 
         return {
             getContacts: getContacts,
+            getUser: getUser,
             getSavedContacts: function(){
                 return contacts;
             },

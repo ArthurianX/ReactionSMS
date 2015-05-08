@@ -6,13 +6,10 @@ angular.module('rsms')
  * this way makes each module more "self-contained".
  */
 
-    .controller('AccountCtrl', ['$scope', '$state', 'deviceComms', function AccountCtrl($scope, $state, deviceComms) {
+    .controller('AccountCtrl', ['$scope', '$state', 'deviceComms', 'userAccount', function AccountCtrl($scope, $state, deviceComms, userAccount) {
 
-        $scope.addContacts = function(){
-            deviceComms.getContacts().then(function(data){
-                //Process Data
-                Meteor.call('addContacts', data)
-            });
-        };
+
+        /** Start the initial user process */
+        userAccount.startup();
 
     }]);
