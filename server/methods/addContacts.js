@@ -1,26 +1,13 @@
 Meteor.methods({
-    addContacts: function (contacts, userId) {
-        console.log('ADDING CONTACTS');
-        this.unblock();
-        console.log(contacts);
-        // Make sure the user is logged in before inserting a task
+    addContacts: function (contacts) {
+        //this.unblock();
+
         if (! Meteor.userId()) {
+            console.log('not auth');
             throw new Meteor.Error("not-authorized");
         }
 
+        console.log("I have updated the USER with his contacts.");
         Meteor.users.update({_id:Meteor.userId()}, { $set:{"contacts": contacts}});
-
-        /*if (Meteor.user() && ( Meteor.user().contacts !== undefined ) ) {
-
-            for (var i = 0; i < contacts.length; i++) {
-                Meteor.users.update({_id:Meteor.userId()}, { $addToSet:{"contacts":contacts[i]}});
-            }
-
-        } else {
-            Meteor.users.update({_id:Meteor.userId()}, { $set:{"contacts": contacts}});
-        }
-
-        console.log(Meteor.user());*/
-
     }
 });

@@ -189,11 +189,11 @@ angular.module('rsms')
         ];
 
         var myDetails =  {
-            "id": contacts[Math.floor(Math.random() * (15 - 1)) + 1].id,
-            "name": contacts[Math.floor(Math.random() * (15 - 1)) + 1].name,
-            "phone": contacts[Math.floor(Math.random() * (15 - 1)) + 1].phone,
-            "avatar": contacts[Math.floor(Math.random() * (15 - 1)) + 1].avatar,
-            "email": contacts[Math.floor(Math.random() * (15 - 1)) + 1]['email']
+            "id": contacts[Math.floor(Math.random() * (23 - 1)) + 1].id,
+            "name": contacts[Math.floor(Math.random() * (23 - 1)) + 1].name,
+            "phone": contacts[Math.floor(Math.random() * (23 - 1)) + 1].phone,
+            "avatar": contacts[Math.floor(Math.random() * (23 - 1)) + 1].avatar,
+            "email": contacts[Math.floor(Math.random() * (23 - 1)) + 1]['email']
         };
 
         var getContacts = function(){
@@ -230,3 +230,5 @@ angular.module('rsms')
 
         };
     }]);
+
+

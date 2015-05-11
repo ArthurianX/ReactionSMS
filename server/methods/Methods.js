@@ -1,15 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
 // In your server code: define a method that the client can call
 Meteor.methods({
     sendEmail: function (to, from, subject, text) {
@@ -28,6 +16,11 @@ Meteor.methods({
     }
 });
 
+Meteor.methods({
+    getUser: function (to, from, subject, text) {
+        return Meteor.user();
+    }
+});
 
 Meteor.methods({
     invite: function (partyId, userId) {

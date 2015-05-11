@@ -4,4 +4,25 @@
     </div>
 
     <a href="javascript:;" ng-click="addContacts()">AddContacts</a>
+    <md-button ng-click="getGoogleCts()">
+        Get G Contacts
+    </md-button>
+
+    <br>
+
+    <md-button ng-click="connect()">
+        Connect Users
+    </md-button>
+    <br/>
+
+    <div class="md-2-line" ng-repeat="contact in contacts[0].contacts">
+        <div class="md-list-item-text">
+            <h3>{{contact.name}}</h3>
+            <p>
+                {{contact.phone}}
+            </p>
+            <p>Has App: {{contact.appActive}} ({{contact.appId}})</p>
+        </div>
+        <md-divider></md-divider>
+    </div>
 </div>
