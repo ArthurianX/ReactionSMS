@@ -1,7 +1,7 @@
 angular.module('rsms')
     .config(function(){})
     .run(function(){})
-    .factory('deviceComms', ['$q', function deviceComms($q) {
+    .service('deviceComms', ['$q', function deviceComms($q) {
 
         var contacts = [
             {

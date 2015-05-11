@@ -1,8 +1,8 @@
 <div class="messagepage" ng-controller="MessageCtrl as mctrl" layout="column" layout-fill>
 
-    <div>
 
         <!-- Autocomplete -->
+    <div flex="5">
         <form ng-submit="$event.preventDefault()">
             <md-autocomplete
                     ng-if="!selectedContact"
@@ -29,47 +29,45 @@
 
             </md-autocomplete>
         </form>
+    </div>
 
-        <!-- Selected Contact -->
-        <div ng-if="selectedContact" class="selected-contact">
-            <md-list>
-                <md-list-item class="md-2-line" ng-repeat="contact in selectedContact" ng-click="composeReaction(contact)">
-                    <img ng-src="{{contact.avatar}}" alt="{{contact.name}}" class="md-avatar">
-                    <div class="md-list-item-text">
-                        <h3>{{contact.name}}</h3>
-                        <p>
-                            {{contact.phone}}
-                        </p>
-                    </div>
-                    <span flex></span>
+    <!-- Selected Contact -->
+    <div flex="10" ng-if="selectedContact" class="selected-contact">
+        <md-list>
+            <md-list-item class="md-2-line" ng-repeat="contact in selectedContact" ng-click="composeReaction(contact)">
+                <img ng-src="{{contact.avatar}}" alt="{{contact.name}}" class="md-avatar">
+                <div class="md-list-item-text">
+                    <h3>{{contact.name}}</h3>
+                    <p>
+                        <!--{{contact.phone}}-->
+                    </p>
+                </div>
+                <span flex></span>
 
-                    <md-button ng-click="removeContact()"
-                               class="md-secondary hamburger-menu">
-                        <i class="fa fa-times fa-lg"></i>
-                    </md-button>
-                    <md-divider></md-divider>
-                </md-list-item>
-            </md-list>
-        </div>
+                <md-button ng-click="removeContact()"
+                           class="md-secondary hamburger-menu">
+                    <i class="fa fa-times fa-lg"></i>
+                </md-button>
+                <md-divider></md-divider>
+            </md-list-item>
+        </md-list>
     </div>
 
 
 
-    <!-- Message - Contact Context -->
-    <div class="actions">
-        <div class="messages" flex>
-            User Messages, if any, come here
-        </div>
 
-        <!-- Write Text Message -->
-        <div class="text-message">
-            Text Message
-        </div>
+    <div flex="50" class="messages">
+        User Messages, if any, come here
+    </div>
 
-        <!-- Reactions - FAVORITE -->
-        <div class="reactions">
-            REACTIONS
-        </div>
+    <!-- Write Text Message -->
+    <div flex="10" class="text-message">
+        Text Message
+    </div>
+
+    <!-- Reactions - FAVORITE -->
+    <div flex class="reactions">
+        REACTIONS
     </div>
 
 </div>

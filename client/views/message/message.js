@@ -1,7 +1,7 @@
 angular.module('rsms')
 
 
-    .controller('MessageCtrl', ['$scope', '$state', '$stateParams', 'deviceComms', '$log', function MessageCtrl($scope, $state, $stateParams, deviceComms, $log) {
+    .controller('MessageCtrl', ['$scope', '$state', '$stateParams', 'deviceComms', '$log', '$meteor', function MessageCtrl($scope, $state, $stateParams, deviceComms, $log, $meteor) {
 
         $scope.compDetails = {
             avatar: '',
@@ -15,20 +15,17 @@ angular.module('rsms')
         var contacts = deviceComms.getSavedContacts();
 
         var findContact = function(){
-            for (var i=0; i < contacts.length; i++) {
-                if (contacts[i].id === $stateParams.friend) {
-                    $scope.compDetails = {
-                        avatar: $stateParams.friend.avatar,
-                        name: $stateParams.friend.name,
-                        phone: $stateParams.friend.phone
-                    };
-                }
-            }
+            $meteor.call('findContact', $stateParams.friend).then(function(data){
+                //This user should always exist.
+                console.log('Found user', data);
+                $scope.selectedContact = [data];
+            });
         };
 
-        console.log($stateParams);
+
 
         if ($stateParams.friend) {
+            console.log('Find Friend');
             findContact();
         }
 
@@ -83,7 +80,6 @@ angular.module('rsms')
                 };
             });
         }
-        console.log(loadAll());
         /**
          * Create filter function for a query string
          */

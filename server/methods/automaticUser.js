@@ -9,22 +9,23 @@ Meteor.methods({
             password: user.password,
             profile: {
                 phone: user.phone || false,
-                contacts: [''],
-                friends: [''],
-                randomContact: [''],
+                avatar: user.avatar,
+                contacts: [],
+                friends: [],
+                randomContact: [],
                 slots: 100,
-                favoriteReactions: [''],
+                favoriteReactions: [],
                 officialSignup: user.officialSignup,
                 statistics: {
                     conversations: '',
                     messages: '',
                     randomMessages: '',
-                    reactionsStats: ['']
+                    reactionsStats: []
                 },
                 game: {
                     dailyRandomMessageEnabled: 0,
                     dailyRandomMessageUsed: 0,
-                    badges: ['']
+                    badges: []
                 }
             }
         });

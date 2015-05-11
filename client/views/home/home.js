@@ -1,22 +1,22 @@
 angular.module('rsms')
 
 
-    .controller('HomeCtrl', ['$scope', '$state', 'deviceComms', function HomeController($scope, $state, deviceComms) {
+    .controller('HomeCtrl', ['$scope', '$state', 'deviceComms', '$meteor', function HomeController($scope, $state, deviceComms, $meteor) {
 
-        deviceComms.getContacts().then(function(data){
-            $scope.contacts = data;
-        }, function(){
-            $scope.contacts = [{
-                "id": "554767a807c613f6b29a8023",
-                "name": "No Access to PhoneBook",
-                "phone": "Retry PhoneBook",
-                "avatar": "227074167.png"
-            }]
-        });
+        $scope.friendedContacs = false;
+        $scope.contacts = false;
+        //Meteor.call('connectPhone');
+        $scope.contacts = $meteor.collection(Meteor.users, false).subscribe('contacts');
+
+        $scope.findFriends = function(){
+            $meteor.call('connectPhone').then(function(data){
+                $scope.friendedContacs = data;
+            });
+        };
 
         $scope.composeReaction = function(contact) {
             setTimeout(function(){
-                $state.go('messageto', {friend: contact.id})
+                $state.go('messageto', {friend: contact})
             }, 200);
         }
 

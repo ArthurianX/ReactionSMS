@@ -43,12 +43,6 @@ angular.module('rsms')
             Meteor.call('getGoogleContacts', function(data){
                 console.log(data);
             })
-        }
-
-        $scope.connect = function(){
-            $meteor.call('connectPhone').then(function(data){
-                console.log('ConnectFriends ', data);
-            });
         };
 
         //$scope.user = $meteor.collection(Meteor.users, false).subscribe('users');

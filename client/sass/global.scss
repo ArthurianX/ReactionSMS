@@ -49,6 +49,22 @@ body {
       color: grey;
     }
   }
+  md-list-item {
+    .status {
+      &.add {
+        padding-right: 10px;
+      }
+    }
+    &.friends {
+      > button {
+        background-color: #f7f7f7;
+      }
+      .status {
+        color: green;
+      }
+    }
+
+  }
 
 
 }

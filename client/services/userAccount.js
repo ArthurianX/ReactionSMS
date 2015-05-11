@@ -24,7 +24,9 @@ angular.module('rsms')
                 data = angular.copy(data);
                 processData.many(data, 'phone', 'encrypt').then(function(goodData){
                     console.log('Adding contacts');
-                    $meteor.call('addContacts', goodData).then(function(data){});
+                    $meteor.call('addContacts', goodData).then(function(data){
+
+                    });
                 });
             });
         };
@@ -43,42 +45,50 @@ angular.module('rsms')
 
                 if (savedData == null) {
 
-                    deviceComms.getUser().then(function(data){
+                    var createRandUser = function(){
+                        deviceComms.getUser().then(function(data){
 
-                        console.log('Starting the dummy addition');
-                        var user = data;
-                        processData.one(data.phone, 'encrypt').then(function(data){
-                            console.log('Encrypted');
-                            user.phone = data;
-                            //console.log('User is', user);
-                            //console.log('Creating new user');
-                            var genPass = Meteor.uuid().split('-')[0];
-                            user.password = genPass;
-                            user.officialSignup = false;
+                            console.log('Starting the dummy addition');
+                            var user = data;
+                            processData.one(data.phone, 'encrypt').then(function(data){
+                                console.log('Encrypted');
+                                user.phone = data;
+                                //console.log('User is', user);
+                                //console.log('Creating new user');
+                                var genPass = Meteor.uuid().split('-')[0];
+                                user.password = genPass;
+                                user.officialSignup = false;
 
-                            Meteor.call('autoUser', user, function(err, data){
-                                //console.log('Err', err);
-                                //console.log('Data', data);
-                                console.log('Auto-User', data, err);
-                                if (data) {
+                                Meteor.call('autoUser', user, function(err, data){
+                                    //console.log('Err', err);
+                                    //console.log('Data', data);
+                                    console.log('Auto-User', data, err);
+                                    if (data) {
 
-                                    user.password = genPass;
-                                    user.id = data;
-                                    temporaryStorage.setData(user);
+                                        user.password = genPass;
+                                        user.id = data;
+                                        temporaryStorage.setData(user);
 
-                                    loginUser(user);
+                                        loginUser(user);
 
-                                    saveContacts();
-                                }
+                                        saveContacts();
+                                    } else {
+
+                                        setTimeout(function(){
+                                            //Retry until you find an ok user.
+                                            createRandUser();
+                                        }, 200);
+
+                                    }
+                                });
                             });
-                        });
 
-                    });
+                        });
+                    };
+                    createRandUser();
 
                 } else {
-
                     loginUser(savedData);
-
                 }
             }
         };
