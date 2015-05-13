@@ -1,3 +1,58 @@
+/**
+ * These are the variables used throughout the application. This is where 
+ * overwrites that are not specific to components should be maintained.
+ */
+
+
+/**
+ * Typography-related.
+ */
+
+$sansFontFamily: 'Roboto', sans-serif;
+
+$light-blue: #5AB0F5;
+
+$blue: #4577bb;
+
+$green: #69bf67;
+
+$yellow: #ffcd30;
+
+$yellow2: #f2ba49;
+
+$orange: #f7942a;
+
+$red: #ef413e;
+
+$pink: #ef385b;
+
+$light-grey: #fbfbfb;
+
+$grey: #8e8f94;
+
+$dark-grey: #474747;
+
+$headings-blue: #1F5F98;
+
+$twitter: #55ACEE;
+
+$facebook: #3B5598;
+
+$significant-border-color: 			#507CAE;
+$significant-text-color: 			#3F679E;
+$traffic-border-color: 				#989F9F;
+$traffic-text-color: 				#868E8E;
+$revenue-border-color: 				#9DBC1A;
+$revenue-text-color: 				#6CC299;
+$landing-border-color: 				#52B3D9;
+$landing-text-color: 				#44A4D0;
+$content-border-color: 				#913D88;
+$content-text-color: 				#913D88;
+$products-border-color: 			#E67E22;
+$products-text-color: 				#DE691B;
+
+
+
 body {
   overflow: hidden;
 }
@@ -74,6 +129,102 @@ body {
 
 .messagepage {
 
+  .messages {
+    position: relative;
+    height: 71.5vh;
+    overflow-y: auto;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    -webkit-transition: height .5s cubic-bezier(.35,0,.25,1);
+    -moz-transition: height .5s cubic-bezier(.35,0,.25,1);
+    transition: height .5s cubic-bezier(.35,0,.25,1);
+    .sending-load {
+      position: absolute;
+      top: 0px;
+      width: 100%;
+      md-progress-linear .md-container {
+        top: 0px;
+      }
+    }
+  }
+  .selected-contact {
+    md-list {
+      padding: 0px;
+      button {
+        background-color: #f2f2f2;
+        .hamburger-menu {
+          color: #5c5c5c
+        }
+      }
+    }
+  }
+  .text-message {
+    border-bottom: 1px solid #ccc;
+    background-color: #f1f1f1;
+    outline: none;
+    md-radio-button {
+      margin: 14px;
+    }
+    .md-switch-thumb .md-label, md-radio-button .md-label {
+      margin-left: 5px;
+      font-size: 0.5em;
+    }
+    md-input-container {
+      padding-bottom: 0px;
+      margin-bottom: -1px;
+      overflow: visible;
+      .md-char-counter {
+        bottom: 0px;
+        right: -50px;
+      }
+    }
+    .send {
+      text-align: center;
+      font-size: 2em;
+      padding-top: 8px;
+      color: $green;
+      outline: none;
+      cursor: pointer;
+    }
+
+    &.edit-mode {
+
+    }
+
+    .switch {
+      md-switch {
+        margin: 16px 13px 11px 13px;
+      }
+      .md-container {
+        transform: rotate(-90deg);
+        margin-bottom: -21px;
+        zoom: 1.1;
+
+      }
+      .md-label {
+        font-size: 0.5em;
+        span {
+          line-height: 30px;
+        }
+      }
+    }
+
+  }
+  
+  .reactions {
+    overflow-y: auto;
+    height: 100%;
+    > div {
+      display: inline-block;
+      width: 24vw;
+    }
+    .reaction {
+      height: 24vw;
+      border:1px solid #ececec;
+      background-color: #f7f7f7;
+      margin: 0 0 5px 0;
+    }
+  }
 
 
 }

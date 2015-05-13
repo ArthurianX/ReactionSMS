@@ -2,7 +2,9 @@
 
 
         <!-- Autocomplete -->
-    <div flex="5">
+
+    <div>
+
         <form ng-submit="$event.preventDefault()">
             <md-autocomplete
                     ng-if="!selectedContact"
@@ -46,7 +48,7 @@
 
                 <md-button ng-click="removeContact()"
                            class="md-secondary hamburger-menu">
-                    <i class="fa fa-times fa-lg"></i>
+                    <i class="fa fa-times"></i>
                 </md-button>
                 <md-divider></md-divider>
             </md-list-item>
@@ -54,20 +56,64 @@
     </div>
 
 
-
-
-    <div flex="50" class="messages">
-        User Messages, if any, come here
+    <div class="messages" style="height: {{messagesHeight}}vh">
+        <div class="sending-load" ng-if="isLoading">
+            <md-progress-linear md-mode="indeterminate"></md-progress-linear>
+        </div>
+        <div class="list">
+            {{messages}}
+            <div class="message"
+                 ng-class=""
+                 ng-repeat="message in messages">
+                {{message.text}}
+            </div>
+        </div>
     </div>
 
     <!-- Write Text Message -->
-    <div flex="10" class="text-message">
-        Text Message
+    <div class="text-message" layout="row" ng-class="{'edit-mode': textEditMode, 'simple-mode': !textEditMode}">
+        <div flex="15">
+            <!--<md-radio-group ng-model="message.type">
+                <md-radio-button value="direct" class="md-primary">APP</md-radio-button>
+                <md-radio-button value="sms">SMS</md-radio-button>
+                &lt;!&ndash;<md-radio-button value="mms">MMS</md-radio-button>&ndash;&gt;
+            </md-radio-group>-->
+            <div class="switch">
+                <md-switch ng-model="isEditActive" ng-click="switchEdit(isEditActive)" aria-label="SMS or MMS" class="md-primary">
+                    MMS <br> SMS
+                </md-switch>
+            </div>
+        </div>
+        <div flex>
+            <md-input-container flex ng-click="textEditMode = !textEditMode">
+                <label>Message</label>
+                <textarea ng-model="message.text" columns="1" md-maxlength="150"></textarea>
+            </md-input-container>
+        </div>
+        <div flex="15" ng-click="sendMessage()" class="send">
+            <i class="fa fa-arrow-circle-o-up"></i>
+        </div>
+
     </div>
 
     <!-- Reactions - FAVORITE -->
     <div flex class="reactions">
-        REACTIONS
+        <div layout="column" flex="25">
+            <div flex layout-fill class="reaction"><img src="" alt=""/></div>
+            <div flex layout-fill class="reaction"><img src="" alt=""/></div>
+        </div>
+        <div layout="column" flex="25">
+            <div flex layout-fill class="reaction"><img src="" alt=""/></div>
+            <div flex layout-fill class="reaction"><img src="" alt=""/></div>
+        </div>
+        <div layout="column" flex="25">
+            <div flex layout-fill class="reaction"><img src="" alt=""/></div>
+            <div flex layout-fill class="reaction"><img src="" alt=""/></div>
+        </div>
+        <div layout="column" flex="25">
+            <div flex layout-fill class="reaction"><img src="" alt=""/></div>
+            <div flex layout-fill class="reaction"><img src="" alt=""/></div>
+        </div>
     </div>
 
 </div>

@@ -12,6 +12,7 @@ Meteor.methods({
                 avatar: user.avatar,
                 contacts: [],
                 friends: [],
+                conversations: [],
                 randomContact: [],
                 slots: 100,
                 favoriteReactions: [],

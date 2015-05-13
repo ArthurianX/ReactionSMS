@@ -23,9 +23,9 @@ angular.module('rsms')
             deviceComms.getContacts().then(function(data){
                 data = angular.copy(data);
                 processData.many(data, 'phone', 'encrypt').then(function(goodData){
-                    console.log('Adding contacts');
+                    console.log('Adding contacts', goodData);
                     $meteor.call('addContacts', goodData).then(function(data){
-
+                        console.log(data);
                     });
                 });
             });

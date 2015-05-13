@@ -68,7 +68,7 @@ angular.module('rsms')
                 url: '/message/:friend',
                 views: {
                     'main': {
-                        controller: 'MessageCtrl',
+                        //controller: 'MessageCtrl', IT INSTANTIATES TWICE!
                         templateUrl: 'client/views/message/message.ng.html'
                     }
                 },

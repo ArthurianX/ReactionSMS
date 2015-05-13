@@ -3,6 +3,9 @@ angular.module('rsms')
 
     .controller('MessageCtrl', ['$scope', '$state', '$stateParams', 'deviceComms', '$log', '$meteor', function MessageCtrl($scope, $state, $stateParams, deviceComms, $log, $meteor) {
 
+
+        /** Variables */
+
         $scope.compDetails = {
             avatar: '',
             name: '',
@@ -10,29 +13,59 @@ angular.module('rsms')
             reaction: ''
         };
 
+        $scope.message = [];
+
+        $scope.isEditActive = false;
+        $scope.messagesHeight = 71.5;
+        $scope.isLoading = false;
+
+        $scope.conversationId = '';
+        $scope.messages = []; //This is the conversations
+
         $scope.selectedContact = false;
 
         var contacts = deviceComms.getSavedContacts();
 
+        /** Subscriptions */
+
+        //$scope.accountReactive = $meteor.collection(Meteor.users, false).subscribe('accountReactive');
+
+
+
+
+        /** Contact Display */
+
         var findContact = function(){
             $meteor.call('findContact', $stateParams.friend).then(function(data){
-                //This user should always exist.
-                console.log('Found user', data);
-                $scope.selectedContact = [data];
+                if (data !== undefined) {
+                    //This user should always exist.
+                    console.log('Found user', data);
+                    $scope.selectedContact = [data];
+                    startConversation(findConversationWithUser($stateParams.friend));
+                }
             });
         };
-
-
 
         if ($stateParams.friend) {
             console.log('Find Friend');
             findContact();
         }
 
+
+        $scope.switchEdit = function(isEditActive){
+            if (!$scope.isEditActive) {
+                $scope.messagesHeight = 50;
+            } else {
+                $scope.messagesHeight = 71.5;
+            }
+        };
+
         $scope.selectReaction = function(){
 
         };
 
+
+        /** Search AutoComplete */
 
         var self = this;
         self.simulateQuery = false;
@@ -61,6 +94,8 @@ angular.module('rsms')
         function selectedItemChange(item) {
             $log.info('Item changed to ' + JSON.stringify(item));
             $scope.selectedContact = [item];
+            console.log(item);
+            startConversation(findConversationWithUser(item.id));
         }
 
         $scope.removeContact = function(){
@@ -89,5 +124,58 @@ angular.module('rsms')
                 return (state.value.indexOf(lowercaseQuery) >= 0);
             };
         }
+
+
+        /** Find other conversations */
+
+        var findConversationWithUser = function(param){
+
+            console.log('Searching for conversations');
+            var conversationUsers = _.pluck($scope.accountReactive[0].profile.conversations, 'user');
+
+            if (conversationUsers.indexOf(param) > -1) {
+                return $scope.accountReactive[0].profile.conversations[conversationUsers.indexOf(param)].id;
+            } else {
+                return undefined;
+            }
+
+
+        };
+
+        var startConversation = function(convoId){
+            console.log('Start Checking for Conversation ', convoId);
+            if (convoId !== undefined) {
+                console.log('Conversation found');
+                listenToConversation(convoId);
+            } else if (convoId === undefined) {
+                $meteor.call('initiateConversation', $scope.accountReactive[0]._id, $stateParams.friend, $scope.message).then(function(data){
+                    console.log('Succesfully initiated conversation');
+                    //Add conversation to both users
+                    console.log('Sending convoId', data, ' and userID ', $stateParams.friend, ' while mine is ', Meteor.userId());
+                    $meteor.call('addConversationToUsers', data, $stateParams.friend).then(function(){
+                        listenToConversation(data);
+                    });
+
+                });
+            }
+        };
+
+        //Subscribe to a conversation id
+        var listenToConversation = function(id){
+            console.log('Starting Reactive Conversation ', id);
+            $scope.messages = $meteor.collection(Conversations, false).subscribe('conversation', id);
+        };
+
+        /** Send Message */
+
+        $scope.sendMessage = function(){
+            $meteor.call('addMessage', $scope.conversationId, $scope.message).then(function(data){
+                //Success
+                $scope.message = [];
+            });
+        };
+
+
+
 
     }]);

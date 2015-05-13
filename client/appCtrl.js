@@ -1,6 +1,6 @@
 angular.module('rsms')
-    .controller('AppController', ['$scope', '$timeout', '$mdSidenav', '$mdUtil', '$log', '$state', 'userAccount',
-        function AppController($scope, $timeout, $mdSidenav, $mdUtil, $log, $state, userAccount) {
+    .controller('AppController', ['$scope', '$timeout', '$mdSidenav', '$mdUtil', '$log', '$state', 'userAccount', '$meteor',
+        function AppController($scope, $timeout, $mdSidenav, $mdUtil, $log, $state, userAccount, $meteor) {
 
             $scope.toggleSidenav = buildToggler('left');
             /**
@@ -17,6 +17,12 @@ angular.module('rsms')
                 },300);
                 return debounceFn;
             }
+
+
+
+            $scope.accountReactive = false;
+            //Meteor.call('connectPhone');
+            $scope.accountReactive = $meteor.collection(Meteor.users, false).subscribe('accountReactive');
 
         }])
     .controller('SidenavCtrl', ['$scope', '$timeout', '$mdSidenav', '$mdUtil', '$log', '$state', function SidenavCtrl($scope, $timeout, $mdSidenav, $mdUtil, $log, $state) {
