@@ -61,11 +61,11 @@
             <md-progress-linear md-mode="indeterminate"></md-progress-linear>
         </div>
         <div class="list">
-            {{messages}}
             <div class="message"
-                 ng-class=""
-                 ng-repeat="message in messages">
-                {{message.text}}
+                 ng-repeat="message in messages[0].conversation"
+                 ng-class="{'other': selectedContact[0].id == message.poster}">
+                <!--{{message}}-->
+                {{message.text}} - {{message.timestamp}}
             </div>
         </div>
     </div>

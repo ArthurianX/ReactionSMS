@@ -146,7 +146,20 @@ body {
         top: 0px;
       }
     }
+
+    /* Message Styles */
+
+    .message {
+      text-align: right;
+      &.other {
+        text-align: left;
+      }
+    }
+
+
+    /* Message Styles END */
   }
+
   .selected-contact {
     md-list {
       padding: 0px;

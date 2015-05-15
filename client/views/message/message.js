@@ -13,7 +13,12 @@ angular.module('rsms')
             reaction: ''
         };
 
-        $scope.message = [];
+        $scope.message = {
+            text: '',
+            reaction: '',
+            poster: '',
+            timestamp: ''
+        };
 
         $scope.isEditActive = false;
         $scope.messagesHeight = 71.5;
@@ -134,6 +139,7 @@ angular.module('rsms')
             var conversationUsers = _.pluck($scope.accountReactive[0].profile.conversations, 'user');
 
             if (conversationUsers.indexOf(param) > -1) {
+                $scope.conversationId = $scope.accountReactive[0].profile.conversations[conversationUsers.indexOf(param)].id;
                 return $scope.accountReactive[0].profile.conversations[conversationUsers.indexOf(param)].id;
             } else {
                 return undefined;
@@ -169,9 +175,10 @@ angular.module('rsms')
         /** Send Message */
 
         $scope.sendMessage = function(){
+            console.log('Posting', $scope.message);
             $meteor.call('addMessage', $scope.conversationId, $scope.message).then(function(data){
                 //Success
-                $scope.message = [];
+                $scope.message.text = '';
             });
         };
 

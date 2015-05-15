@@ -6,7 +6,11 @@ Meteor.methods({
             console.log('not auth');
             throw new Meteor.Error("not-authorized");
         }
-        Conversations.update({_id: id}, {conversation: {$push: message}});
 
+        message.timestamp = new Date().getTime();
+        message.poster = Meteor.userId();
+        console.log('Conversation id is', id);
+        console.log('Conversation message is', message);
+        Conversations.update(id, {$push: {conversation: message}}, {multi: true});
     }
 });
