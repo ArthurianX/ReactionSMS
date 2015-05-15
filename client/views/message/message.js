@@ -154,7 +154,7 @@ angular.module('rsms')
                 console.log('Conversation found');
                 listenToConversation(convoId);
             } else if (convoId === undefined) {
-                $meteor.call('initiateConversation', $scope.accountReactive[0]._id, $stateParams.friend, $scope.message).then(function(data){
+                $meteor.call('initiateConversation', $scope.accountReactive[0]._id, $stateParams.friend).then(function(data){
                     console.log('Succesfully initiated conversation');
                     //Add conversation to both users
                     console.log('Sending convoId', data, ' and userID ', $stateParams.friend, ' while mine is ', Meteor.userId());
@@ -175,6 +175,7 @@ angular.module('rsms')
         /** Send Message */
 
         $scope.sendMessage = function(){
+            console.log('Posting to ', $scope.conversationId);
             console.log('Posting', $scope.message);
             $meteor.call('addMessage', $scope.conversationId, $scope.message).then(function(data){
                 //Success

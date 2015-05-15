@@ -24,6 +24,10 @@ angular.module('rsms')
             //Meteor.call('connectPhone');
             $scope.accountReactive = $meteor.collection(Meteor.users, false).subscribe('accountReactive');
 
+            /** Start the initial user process */
+            userAccount.startup();
+
+
         }])
     .controller('SidenavCtrl', ['$scope', '$timeout', '$mdSidenav', '$mdUtil', '$log', '$state', function SidenavCtrl($scope, $timeout, $mdSidenav, $mdUtil, $log, $state) {
 

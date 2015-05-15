@@ -3,11 +3,13 @@ Meteor.methods({
     autoUser: function(user) {
         console.log('ADDING USER');
         console.log(user);
+        this.unblock();
         return Accounts.createUser({
-            username: user.name,
+            username: user.name.toLowerCase().replace(' ', '_') + new Date().getTime(),
             email: user.email,
             password: user.password,
             profile: {
+                fullname: user.name,
                 phone: user.phone || false,
                 avatar: user.avatar,
                 contacts: [],

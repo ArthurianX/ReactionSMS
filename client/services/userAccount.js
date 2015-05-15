@@ -19,8 +19,8 @@ angular.module('rsms')
             });
         };
 
-        var saveContacts = function(){
-            deviceComms.getContacts().then(function(data){
+        var saveContacts = function(idToSplice){
+            deviceComms.getContacts(idToSplice).then(function(data){
                 data = angular.copy(data);
                 processData.many(data, 'phone', 'encrypt').then(function(goodData){
                     console.log('Adding contacts', goodData);
@@ -50,6 +50,7 @@ angular.module('rsms')
 
                             console.log('Starting the dummy addition');
                             var user = data;
+                            var idToSplice = angular.copy(user.id);
                             processData.one(data.phone, 'encrypt').then(function(data){
                                 console.log('Encrypted');
                                 user.phone = data;
@@ -71,7 +72,7 @@ angular.module('rsms')
 
                                         loginUser(user);
 
-                                        saveContacts();
+                                        saveContacts(idToSplice);
                                     } else {
 
                                         setTimeout(function(){

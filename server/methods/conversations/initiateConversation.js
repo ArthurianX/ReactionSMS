@@ -1,5 +1,5 @@
 Meteor.methods({
-    initiateConversation: function (user1, user2, firstMessage) {
+    initiateConversation: function (user1, user2) {
         //this.unblock();
 
         if (! Meteor.userId()) {
@@ -9,7 +9,7 @@ Meteor.methods({
 
         return Conversations.insert({
             users: [user1, user2],
-            conversation: firstMessage
+            conversation: []
         }, function(err, id){
             return id;
         });

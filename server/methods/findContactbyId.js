@@ -1,6 +1,6 @@
 Meteor.methods({
     findContact: function (id) {
-        //this.unblock();
+        this.unblock();
 
         if (! Meteor.userId()) {
             console.log('not auth');

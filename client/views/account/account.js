@@ -9,20 +9,6 @@ angular.module('rsms')
     .controller('AccountCtrl', ['$scope', '$state', 'deviceComms', 'userAccount', '$meteor', function AccountCtrl($scope, $state, deviceComms, userAccount, $meteor) {
 
 
-        /** Start the initial user process */
-        userAccount.startup();
-
-
-        Accounts.ui.config({
-            requestPermissions: {
-                facebook: ['email', 'user_friends'],
-                google:['https://www.google.com/m8/feeds']
-            },
-            requestOfflineToken: {
-                google: true
-            },
-            passwordSignupFields: 'USERNAME_AND_EMAIL'
-        });
 
         $scope.loginFacebook = function(){
             Meteor.loginWithFacebook();

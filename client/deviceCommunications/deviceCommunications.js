@@ -3,610 +3,106 @@ angular.module('rsms')
     .run(function(){})
     .service('deviceComms', ['$q', function deviceComms($q) {
 
-        var contacts = [
-            {
-                "id": "555132a3cb4f5281c662392c",
-                "name": "Tonya Morton",
-                "phone": "(868) 406-2515",
-                "avatar": "238327412.png",
-                "email": "tonyamorton@xumonk.com"
-            },
-            {
-                "id": "555132a325602c4dc2d0d0e5",
-                "name": "Susanne Byrd",
-                "phone": "(972) 491-2967",
-                "avatar": "208800397.png",
-                "email": "susannebyrd@xumonk.com"
-            },
-            {
-                "id": "555132a3b5812768c811473a",
-                "name": "Sutton Mcconnell",
-                "phone": "(940) 562-3306",
-                "avatar": "217351561.png",
-                "email": "suttonmcconnell@xumonk.com"
-            },
-            {
-                "id": "555132a387bc0777072d4d1d",
-                "name": "Burt Bell",
-                "phone": "(984) 570-3858",
-                "avatar": "253043429.png",
-                "email": "burtbell@xumonk.com"
-            },
-            {
-                "id": "555132a3db32deea8520bfc1",
-                "name": "Buckner Berry",
-                "phone": "(999) 458-2790",
-                "avatar": "242363972.png",
-                "email": "bucknerberry@xumonk.com"
-            },
-            {
-                "id": "555132a3206fdd9c84143aa4",
-                "name": "Burgess Gibson",
-                "phone": "(999) 452-3299",
-                "avatar": "242413170.png",
-                "email": "burgessgibson@xumonk.com"
-            },
-            {
-                "id": "555132a30e5da4540203829e",
-                "name": "Rosales Holcomb",
-                "phone": "(910) 438-2333",
-                "avatar": "218442418.png",
-                "email": "rosalesholcomb@xumonk.com"
-            },
-            {
-                "id": "555132a3112be9154a0801a6",
-                "name": "Erica Witt",
-                "phone": "(852) 501-3640",
-                "avatar": "188478056.png",
-                "email": "ericawitt@xumonk.com"
-            },
-            {
-                "id": "555132a38c474bbd3804e175",
-                "name": "Church Sanchez",
-                "phone": "(980) 514-2313",
-                "avatar": "191360904.png",
-                "email": "churchsanchez@xumonk.com"
-            },
-            {
-                "id": "555132a307f5ea4d9f061480",
-                "name": "Katina Jacobs",
-                "phone": "(855) 421-2963",
-                "avatar": "215317159.png",
-                "email": "katinajacobs@xumonk.com"
-            },
-            {
-                "id": "555132a37974be82e2f1764f",
-                "name": "Aisha Reynolds",
-                "phone": "(891) 529-2004",
-                "avatar": "218406934.png",
-                "email": "aishareynolds@xumonk.com"
-            },
-            {
-                "id": "555132a369c19aac4e834921",
-                "name": "Kerr Lara",
-                "phone": "(850) 558-3740",
-                "avatar": "194118521.png",
-                "email": "kerrlara@xumonk.com"
-            },
-            {
-                "id": "555132a3a18a7f75e75b17ba",
-                "name": "Annette Atkins",
-                "phone": "(996) 583-2329",
-                "avatar": "214168458.png",
-                "email": "annetteatkins@xumonk.com"
-            },
-            {
-                "id": "555132a37c243ceb532b69c6",
-                "name": "Maryann Vance",
-                "phone": "(839) 545-3556",
-                "avatar": "247700331.png",
-                "email": "maryannvance@xumonk.com"
-            },
-            {
-                "id": "555132a3546ac62f1ee48a72",
-                "name": "Juliette Mcdaniel",
-                "phone": "(876) 459-2021",
-                "avatar": "162923287.png",
-                "email": "juliettemcdaniel@xumonk.com"
-            },
-            {
-                "id": "555132a3fd4fcbb2e53e7d21",
-                "name": "Ingram Olsen",
-                "phone": "(877) 590-3363",
-                "avatar": "210241167.png",
-                "email": "ingramolsen@xumonk.com"
-            },
-            {
-                "id": "555132a37893d10e36baaf71",
-                "name": "Nora Case",
-                "phone": "(900) 494-2161",
-                "avatar": "180835195.png",
-                "email": "noracase@xumonk.com"
-            },
-            {
-                "id": "555132a34132a755da08e650",
-                "name": "Mcintyre Clemons",
-                "phone": "(927) 516-2292",
-                "avatar": "198626065.png",
-                "email": "mcintyreclemons@xumonk.com"
-            },
-            {
-                "id": "555132a3232e59032c75c9a7",
-                "name": "Maura Atkinson",
-                "phone": "(919) 532-2079",
-                "avatar": "159823853.png",
-                "email": "mauraatkinson@xumonk.com"
-            },
-            {
-                "id": "555132a3ef119503ce9caa08",
-                "name": "Holmes Workman",
-                "phone": "(986) 512-2163",
-                "avatar": "244048552.png",
-                "email": "holmesworkman@xumonk.com"
-            },
-            {
-                "id": "555132a3cf1da00bd7b5447e",
-                "name": "Morse Gray",
-                "phone": "(842) 532-3396",
-                "avatar": "217480758.png",
-                "email": "morsegray@xumonk.com"
-            },
-            {
-                "id": "555132a3a3230e5f214bfdac",
-                "name": "Tiffany Ayala",
-                "phone": "(891) 414-3826",
-                "avatar": "187275335.png",
-                "email": "tiffanyayala@xumonk.com"
-            },
-            {
-                "id": "555132a3c8d6e46b39bb6473",
-                "name": "James Hickman",
-                "phone": "(963) 488-3026",
-                "avatar": "160812987.png",
-                "email": "jameshickman@xumonk.com"
-            },
-            {
-                "id": "555132a393370d0ef583716f",
-                "name": "Michael Cameron",
-                "phone": "(820) 443-3716",
-                "avatar": "234178925.png",
-                "email": "michaelcameron@xumonk.com"
-            },
-            {
-                "id": "555132a38730902b8653fc8e",
-                "name": "Dalton Garza",
-                "phone": "(954) 544-3467",
-                "avatar": "251296747.png",
-                "email": "daltongarza@xumonk.com"
-            },
-            {
-                "id": "555132a3c12e6449d5505459",
-                "name": "Craft Roth",
-                "phone": "(817) 464-2257",
-                "avatar": "233078561.png",
-                "email": "craftroth@xumonk.com"
-            },
-            {
-                "id": "555132a3f44f5b5c13f84034",
-                "name": "Desiree Anderson",
-                "phone": "(806) 407-2153",
-                "avatar": "188362855.png",
-                "email": "desireeanderson@xumonk.com"
-            },
-            {
-                "id": "555132a3b395418af00b0627",
-                "name": "Cantrell Rice",
-                "phone": "(910) 428-3897",
-                "avatar": "168509893.png",
-                "email": "cantrellrice@xumonk.com"
-            },
-            {
-                "id": "555132a36563d014e108f287",
-                "name": "Glover Reed",
-                "phone": "(833) 424-2286",
-                "avatar": "256132485.png",
-                "email": "gloverreed@xumonk.com"
-            },
-            {
-                "id": "555132a37bb71b65dfd63da7",
-                "name": "Sexton Hunt",
-                "phone": "(930) 471-2841",
-                "avatar": "245616035.png",
-                "email": "sextonhunt@xumonk.com"
-            },
-            {
-                "id": "555132a36d048b31d0e0268a",
-                "name": "Josefa Mcintosh",
-                "phone": "(840) 473-3949",
-                "avatar": "174600275.png",
-                "email": "josefamcintosh@xumonk.com"
-            },
-            {
-                "id": "555132a365012e04bb01d955",
-                "name": "Battle Calhoun",
-                "phone": "(968) 423-2060",
-                "avatar": "187601198.png",
-                "email": "battlecalhoun@xumonk.com"
-            },
-            {
-                "id": "555132a36ce3d08600b6da7b",
-                "name": "Victoria Blankenship",
-                "phone": "(988) 523-2138",
-                "avatar": "228371869.png",
-                "email": "victoriablankenship@xumonk.com"
-            },
-            {
-                "id": "555132a33b943187a2ea5587",
-                "name": "Felicia Kinney",
-                "phone": "(995) 542-2451",
-                "avatar": "234897728.png",
-                "email": "feliciakinney@xumonk.com"
-            },
-            {
-                "id": "555132a3fcd4dd390c3a98fc",
-                "name": "Hollie Pearson",
-                "phone": "(831) 506-3805",
-                "avatar": "171867685.png",
-                "email": "holliepearson@xumonk.com"
-            },
-            {
-                "id": "555132a3a4326159b3eb1791",
-                "name": "Dana Arnold",
-                "phone": "(984) 464-2961",
-                "avatar": "245696409.png",
-                "email": "danaarnold@xumonk.com"
-            },
-            {
-                "id": "555132a30c66af0944bf065c",
-                "name": "Owen Schultz",
-                "phone": "(811) 460-3837",
-                "avatar": "197748806.png",
-                "email": "owenschultz@xumonk.com"
-            },
-            {
-                "id": "555132a329a84262aa532e23",
-                "name": "Elsie Burnett",
-                "phone": "(921) 595-2099",
-                "avatar": "178404777.png",
-                "email": "elsieburnett@xumonk.com"
-            },
-            {
-                "id": "555132a3486e3cb6c0bcb1af",
-                "name": "Cantu Buckner",
-                "phone": "(880) 597-2487",
-                "avatar": "176045845.png",
-                "email": "cantubuckner@xumonk.com"
-            },
-            {
-                "id": "555132a30c3bfff0f9585584",
-                "name": "Christa Hancock",
-                "phone": "(879) 402-3940",
-                "avatar": "221363512.png",
-                "email": "christahancock@xumonk.com"
-            },
-            {
-                "id": "555132a3de50cb52f3c39d19",
-                "name": "Brady Beard",
-                "phone": "(823) 553-3566",
-                "avatar": "207525737.png",
-                "email": "bradybeard@xumonk.com"
-            },
-            {
-                "id": "555132a3c9ec3a3b1222a433",
-                "name": "Audra Justice",
-                "phone": "(939) 558-3844",
-                "avatar": "246241519.png",
-                "email": "audrajustice@xumonk.com"
-            },
-            {
-                "id": "555132a35b3f940a731b6f48",
-                "name": "Orr Malone",
-                "phone": "(812) 579-3983",
-                "avatar": "169225294.png",
-                "email": "orrmalone@xumonk.com"
-            },
-            {
-                "id": "555132a37df4b58ec78cd46e",
-                "name": "Minnie Carson",
-                "phone": "(825) 568-2390",
-                "avatar": "212706560.png",
-                "email": "minniecarson@xumonk.com"
-            },
-            {
-                "id": "555132a3e29ea40d00feac73",
-                "name": "Nadia Santos",
-                "phone": "(977) 599-3086",
-                "avatar": "228925937.png",
-                "email": "nadiasantos@xumonk.com"
-            },
-            {
-                "id": "555132a33c29d2220b6c9534",
-                "name": "Gillespie Aguirre",
-                "phone": "(937) 417-3584",
-                "avatar": "235662114.png",
-                "email": "gillespieaguirre@xumonk.com"
-            },
-            {
-                "id": "555132a3effd3ab7e9848ed5",
-                "name": "Burton Cross",
-                "phone": "(880) 565-3464",
-                "avatar": "242751742.png",
-                "email": "burtoncross@xumonk.com"
-            },
-            {
-                "id": "555132a31cddf3b8a0fb0e14",
-                "name": "Marsha Phillips",
-                "phone": "(992) 571-2320",
-                "avatar": "206761552.png",
-                "email": "marshaphillips@xumonk.com"
-            },
-            {
-                "id": "555132a3cc17599512f52375",
-                "name": "Earnestine Ortiz",
-                "phone": "(989) 505-2219",
-                "avatar": "251710449.png",
-                "email": "earnestineortiz@xumonk.com"
-            },
-            {
-                "id": "555132a32aaecf65a0e9601c",
-                "name": "Paulette Sweeney",
-                "phone": "(945) 482-3090",
-                "avatar": "159262080.png",
-                "email": "paulettesweeney@xumonk.com"
-            },
-            {
-                "id": "555132a3dbf950a4b4527b92",
-                "name": "Hester Mercer",
-                "phone": "(825) 579-2026",
-                "avatar": "188570959.png",
-                "email": "hestermercer@xumonk.com"
-            },
-            {
-                "id": "555132a3104d916c50112063",
-                "name": "Thomas Mcintyre",
-                "phone": "(968) 405-2245",
-                "avatar": "237799993.png",
-                "email": "thomasmcintyre@xumonk.com"
-            },
-            {
-                "id": "555132a33746c1f71e808222",
-                "name": "Marina Hartman",
-                "phone": "(903) 514-2878",
-                "avatar": "238389724.png",
-                "email": "marinahartman@xumonk.com"
-            },
-            {
-                "id": "555132a37349b115dc9e4753",
-                "name": "Dyer Newton",
-                "phone": "(827) 571-3777",
-                "avatar": "222523004.png",
-                "email": "dyernewton@xumonk.com"
-            },
-            {
-                "id": "555132a3f9abfc897b9c2f39",
-                "name": "Small Mason",
-                "phone": "(815) 594-3419",
-                "avatar": "167009381.png",
-                "email": "smallmason@xumonk.com"
-            },
-            {
-                "id": "555132a39272fcbe614497d3",
-                "name": "Frost Mclaughlin",
-                "phone": "(953) 528-3872",
-                "avatar": "235354164.png",
-                "email": "frostmclaughlin@xumonk.com"
-            },
-            {
-                "id": "555132a366ad430a356e316b",
-                "name": "Graciela Fitzpatrick",
-                "phone": "(881) 460-2134",
-                "avatar": "168130431.png",
-                "email": "gracielafitzpatrick@xumonk.com"
-            },
-            {
-                "id": "555132a3a1aedad16f546e99",
-                "name": "Jenifer Young",
-                "phone": "(991) 541-3268",
-                "avatar": "180019952.png",
-                "email": "jeniferyoung@xumonk.com"
-            },
-            {
-                "id": "555132a38ff487a518f91b4e",
-                "name": "Chapman Bauer",
-                "phone": "(898) 560-2257",
-                "avatar": "238742297.png",
-                "email": "chapmanbauer@xumonk.com"
-            },
-            {
-                "id": "555132a3fd773be3afa03dec",
-                "name": "Carlene Henry",
-                "phone": "(909) 510-3159",
-                "avatar": "186907392.png",
-                "email": "carlenehenry@xumonk.com"
-            },
-            {
-                "id": "555132a35949062f9cf16f96",
-                "name": "Alexandria Yates",
-                "phone": "(853) 579-2246",
-                "avatar": "252051204.png",
-                "email": "alexandriayates@xumonk.com"
-            },
-            {
-                "id": "555132a37b88baa36c628951",
-                "name": "Rose Bridges",
-                "phone": "(933) 440-3418",
-                "avatar": "208413219.png",
-                "email": "rosebridges@xumonk.com"
-            },
-            {
-                "id": "555132a3e8bd2abf64d0dfa5",
-                "name": "Shaw Baldwin",
-                "phone": "(860) 517-2617",
-                "avatar": "219495734.png",
-                "email": "shawbaldwin@xumonk.com"
-            },
-            {
-                "id": "555132a3fe9eaf9175e5725f",
-                "name": "Herman Taylor",
-                "phone": "(833) 492-2843",
-                "avatar": "224590430.png",
-                "email": "hermantaylor@xumonk.com"
-            },
-            {
-                "id": "555132a39ae3947ded331a92",
-                "name": "Leta Flynn",
-                "phone": "(984) 518-2192",
-                "avatar": "158131016.png",
-                "email": "letaflynn@xumonk.com"
-            },
-            {
-                "id": "555132a3d7f6b5f0b6069fa0",
-                "name": "Clark Cleveland",
-                "phone": "(832) 568-2515",
-                "avatar": "160494616.png",
-                "email": "clarkcleveland@xumonk.com"
-            },
-            {
-                "id": "555132a30bbf3e5343b223d8",
-                "name": "Duncan Rhodes",
-                "phone": "(898) 483-3829",
-                "avatar": "245279516.png",
-                "email": "duncanrhodes@xumonk.com"
-            },
-            {
-                "id": "555132a30909aadc8a2b94f2",
-                "name": "Watts Pacheco",
-                "phone": "(809) 492-3055",
-                "avatar": "157660321.png",
-                "email": "wattspacheco@xumonk.com"
-            },
-            {
-                "id": "555132a3e5a481d32aa57807",
-                "name": "Avery Hewitt",
-                "phone": "(855) 437-2546",
-                "avatar": "171580201.png",
-                "email": "averyhewitt@xumonk.com"
-            },
-            {
-                "id": "555132a3bae8b91dfa874896",
-                "name": "Minerva Ortega",
-                "phone": "(839) 528-3912",
-                "avatar": "238082202.png",
-                "email": "minervaortega@xumonk.com"
-            },
-            {
-                "id": "555132a35a8078bd4302c6d4",
-                "name": "Patricia Reyes",
-                "phone": "(914) 599-2123",
-                "avatar": "233190151.png",
-                "email": "patriciareyes@xumonk.com"
-            },
-            {
-                "id": "555132a30e09b8bb9f9bdb14",
-                "name": "Kenya Roach",
-                "phone": "(858) 417-3140",
-                "avatar": "169390738.png",
-                "email": "kenyaroach@xumonk.com"
-            },
-            {
-                "id": "555132a3093b844d6ee85a68",
-                "name": "Hancock Osborne",
-                "phone": "(970) 593-2383",
-                "avatar": "248653938.png",
-                "email": "hancockosborne@xumonk.com"
-            },
-            {
-                "id": "555132a310ebfb199c4c624d",
-                "name": "Beth Bryan",
-                "phone": "(879) 515-3290",
-                "avatar": "222360910.png",
-                "email": "bethbryan@xumonk.com"
-            },
-            {
-                "id": "555132a3bfede39ee96e4ada",
-                "name": "Kemp Robinson",
-                "phone": "(878) 539-2276",
-                "avatar": "203125366.png",
-                "email": "kemprobinson@xumonk.com"
-            },
-            {
-                "id": "555132a3234de909985b3ab1",
-                "name": "Kristine Foley",
-                "phone": "(812) 579-3479",
-                "avatar": "172941764.png",
-                "email": "kristinefoley@xumonk.com"
-            },
-            {
-                "id": "555132a34e74c14a458aa30e",
-                "name": "Hess Flores",
-                "phone": "(966) 580-3033",
-                "avatar": "231288824.png",
-                "email": "hessflores@xumonk.com"
-            },
-            {
-                "id": "555132a36d9cd1329c80fadd",
-                "name": "Rosanne Rosales",
-                "phone": "(858) 588-3496",
-                "avatar": "210826821.png",
-                "email": "rosannerosales@xumonk.com"
-            },
-            {
-                "id": "555132a32e3a0dca6851e6b8",
-                "name": "Cecile Lucas",
-                "phone": "(950) 581-3637",
-                "avatar": "193295627.png",
-                "email": "cecilelucas@xumonk.com"
-            },
-            {
-                "id": "555132a314019255987a9135",
-                "name": "Holloway Jordan",
-                "phone": "(897) 495-2313",
-                "avatar": "171231168.png",
-                "email": "hollowayjordan@xumonk.com"
-            },
-            {
-                "id": "555132a3bc5dc79abafbc5fb",
-                "name": "Hester Odom",
-                "phone": "(845) 416-3140",
-                "avatar": "191906416.png",
-                "email": "hesterodom@xumonk.com"
-            },
-            {
-                "id": "555132a3a120b72d7a5ef9e5",
-                "name": "Tessa Forbes",
-                "phone": "(952) 591-2829",
-                "avatar": "247828435.png",
-                "email": "tessaforbes@xumonk.com"
-            },
-            {
-                "id": "555132a35932eb800e428dc3",
-                "name": "Jewel Myers",
-                "phone": "(838) 438-3742",
-                "avatar": "161177415.png",
-                "email": "jewelmyers@xumonk.com"
-            },
-            {
-                "id": "555132a32031ce744c9e3cde",
-                "name": "Camacho Howell",
-                "phone": "(985) 404-3222",
-                "avatar": "203976124.png",
-                "email": "camachohowell@xumonk.com"
-            },
-            {
-                "id": "555132a3d8dda7ce63ce8d3b",
-                "name": "Collier French",
-                "phone": "(907) 512-3528",
-                "avatar": "237266347.png",
-                "email": "collierfrench@xumonk.com"
-            },
-            {
-                "id": "555132a314afd660630372cd",
-                "name": "Marjorie Barton",
-                "phone": "(869) 490-2620",
-                "avatar": "189715614.png",
-                "email": "marjoriebarton@xumonk.com"
-            }
-        ];
+        var contacts = [{"id":"261ac5a3-e4c2-4e95-bde9-906855f8294d","name":"Katherine Hernandez","phone":"7-(207)257-0635","email":"khernandez0@jugem.jp","avatar":"orci.jpeg"},
+            {"id":"fbba74ca-67be-4efc-8f43-2f1e40117b27","name":"John Banks","phone":"6-(785)796-9467","email":"jbanks1@java.com","avatar":"integer ac.tiff"},
+            {"id":"d4a07b18-70cd-4fb3-9e4b-1f1dc341b2fc","name":"Mildred Roberts","phone":"4-(935)265-4332","email":"mroberts2@newyorker.com","avatar":"at nulla.jpeg"},
+            {"id":"0748c57e-59e8-4f33-987b-e356f47a6d89","name":"Michelle Jordan","phone":"8-(214)259-5458","email":"mjordan3@telegraph.co.uk","avatar":"sit amet eleifend.png"},
+            {"id":"8d05fcd4-981b-4687-865a-730381f0138f","name":"Robin Woods","phone":"3-(953)914-6887","email":"rwoods4@g.co","avatar":"adipiscing molestie.jpeg"},
+            {"id":"f5d2f01f-9633-47c0-9c7b-a102964ea1b5","name":"Gerald Moreno","phone":"7-(290)880-8809","email":"gmoreno5@instagram.com","avatar":"aenean fermentum.tiff"},
+            {"id":"9576adcb-000c-4a74-9c76-9f7aad89c0fe","name":"Gary Schmidt","phone":"3-(148)448-5623","email":"gschmidt6@imdb.com","avatar":"ultrices.tiff"},
+            {"id":"acc3f159-efe1-49d9-8336-33e0f184a6bb","name":"Gary Mills","phone":"7-(959)843-0185","email":"gmills7@myspace.com","avatar":"tincidunt lacus.jpeg"},
+            {"id":"b7092018-1887-4582-a1ad-90057e9d4f29","name":"Victor Hunt","phone":"8-(746)511-7483","email":"vhunt8@angelfire.com","avatar":"tincidunt.jpeg"},
+            {"id":"980ddc23-5ef3-46e6-ba6a-9447c39bbf08","name":"Carol Stephens","phone":"0-(751)815-0580","email":"cstephens9@wikimedia.org","avatar":"ante ipsum primis.png"},
+            {"id":"9dc8d73d-be2c-471c-b73d-097703ad965f","name":"Lawrence Woods","phone":"0-(101)495-1643","email":"lwoodsa@jalbum.net","avatar":"ante ipsum.gif"},
+            {"id":"7129c929-591d-4e64-b31b-2d77331de6a9","name":"Joe Coleman","phone":"7-(046)648-3805","email":"jcolemanb@statcounter.com","avatar":"vel augue vestibulum.png"},
+            {"id":"d0d9c23c-d19a-4725-b22b-8b637161595d","name":"Helen Howell","phone":"4-(536)712-9751","email":"hhowellc@flavors.me","avatar":"neque.tiff"},
+            {"id":"101eb80b-c1c0-4db6-9299-50875caeb555","name":"Eric Clark","phone":"2-(950)414-6223","email":"eclarkd@about.com","avatar":"sapien urna pretium.tiff"},
+            {"id":"842e71e3-0689-45a1-8e05-777314be45ee","name":"James Fowler","phone":"7-(793)283-9324","email":"jfowlere@blog.com","avatar":"rutrum.tiff"},
+            {"id":"2443a82f-4f4c-4f0a-8a34-ff4d50ff0ce5","name":"Shawn Franklin","phone":"3-(680)581-5671","email":"sfranklinf@tinyurl.com","avatar":"nunc proin.png"},
+            {"id":"9cfd427d-65a8-41eb-825e-9a2640d0c2d9","name":"Joshua Tucker","phone":"2-(594)364-3437","email":"jtuckerg@bloglovin.com","avatar":"amet nulla.tiff"},
+            {"id":"425334df-616c-4a59-8fc7-f13914c5309d","name":"Martin Carter","phone":"7-(649)498-6385","email":"mcarterh@ucoz.ru","avatar":"orci.jpeg"},
+            {"id":"7214a6e7-5b1c-46bd-9bd8-a1c17d680958","name":"Larry Simpson","phone":"5-(014)312-8389","email":"lsimpsoni@devhub.com","avatar":"in faucibus.png"},
+            {"id":"526ba29c-2dee-4c69-a242-936da701e542","name":"Gerald Garrett","phone":"6-(271)984-1920","email":"ggarrettj@creativecommons.org","avatar":"sit.jpeg"},
+            {"id":"176e358a-a505-476a-a732-4c6f6bf43136","name":"Shirley Diaz","phone":"5-(778)382-9140","email":"sdiazk@alexa.com","avatar":"quis orci eget.jpeg"},
+            {"id":"82343841-10e7-4671-933a-92cf9e066957","name":"Mark Lewis","phone":"4-(188)492-6845","email":"mlewisl@theglobeandmail.com","avatar":"ac.tiff"},
+            {"id":"ee7d5989-f7ea-4577-b95d-065c3d1d3153","name":"Roy Carroll","phone":"3-(580)747-7711","email":"rcarrollm@blogtalkradio.com","avatar":"elementum ligula vehicula.tiff"},
+            {"id":"7b67d75f-c449-4b71-9a61-858ddd5961c4","name":"Ruby Smith","phone":"6-(808)435-5674","email":"rsmithn@nydailynews.com","avatar":"sem sed.tiff"},
+            {"id":"0e3a4cc4-69ea-4e35-baba-19d0c4da07dd","name":"Victor King","phone":"1-(894)899-5698","email":"vkingo@goodreads.com","avatar":"nulla.jpeg"},
+            {"id":"520c6286-76e1-4717-8553-a5cdb6f8831f","name":"Jonathan Bowman","phone":"2-(591)043-0517","email":"jbowmanp@infoseek.co.jp","avatar":"magna ac.gif"},
+            {"id":"c8257b09-3f6c-4f9e-bafe-b05f47e5ef70","name":"Timothy Duncan","phone":"8-(014)635-9429","email":"tduncanq@census.gov","avatar":"molestie sed justo.jpeg"},
+            {"id":"5f399533-0d14-4a54-b4aa-bfaa2e313762","name":"Patrick Sanders","phone":"9-(906)221-3969","email":"psandersr@ox.ac.uk","avatar":"tellus.gif"},
+            {"id":"8ecdd108-6537-4353-b1a8-39b4733a6906","name":"Roger Mccoy","phone":"6-(982)588-6906","email":"rmccoys@miibeian.gov.cn","avatar":"pellentesque quisque.tiff"},
+            {"id":"29bd2937-1e83-4118-a3b8-986c58cf4022","name":"Deborah White","phone":"0-(150)383-2346","email":"dwhitet@bloglines.com","avatar":"dolor.png"},
+            {"id":"9298a5a4-418a-4ddf-8d1a-df6caf625a7d","name":"Edward Henry","phone":"6-(356)402-6076","email":"ehenryu@scientificamerican.com","avatar":"potenti nullam.tiff"},
+            {"id":"d86d8fd5-72df-4182-9b69-14bc6c863c8b","name":"Melissa Rivera","phone":"0-(220)261-6927","email":"mriverav@php.net","avatar":"erat curabitur.tiff"},
+            {"id":"1236a4a1-5b33-4a62-976a-043efac5e4a8","name":"Judith Gilbert","phone":"7-(144)407-8707","email":"jgilbertw@yale.edu","avatar":"nibh quisque id.jpeg"},
+            {"id":"b248b23a-41e2-4eaa-801b-8233346d3d5f","name":"Paul Johnston","phone":"2-(438)865-2677","email":"pjohnstonx@uol.com.br","avatar":"sapien placerat.tiff"},
+            {"id":"3842f2ce-1882-44a8-a2d1-26f0d2fe13f2","name":"Clarence Reid","phone":"4-(967)025-8676","email":"creidy@thetimes.co.uk","avatar":"diam vitae quam.tiff"},
+            {"id":"e767e5e2-ae21-4905-ac88-c0720bc67bd5","name":"Ruth Mcdonald","phone":"0-(779)770-3696","email":"rmcdonaldz@dailymail.co.uk","avatar":"pede malesuada in.jpeg"},
+            {"id":"4bb50621-3dac-45ba-82c8-687370d29b96","name":"Joan Fuller","phone":"1-(161)881-9530","email":"jfuller10@list-manage.com","avatar":"augue.jpeg"},
+            {"id":"26ae8f93-a333-4a76-aae9-47a984fbc9a9","name":"Juan Ellis","phone":"9-(559)483-6316","email":"jellis11@ibm.com","avatar":"quis.gif"},
+            {"id":"165229b6-f6cc-4deb-8c17-f3d2c70754ac","name":"Joan Garcia","phone":"8-(255)951-9591","email":"jgarcia12@tinyurl.com","avatar":"pede lobortis.tiff"},
+            {"id":"b7ddc6a3-0f58-4b57-bb06-39af509eeec9","name":"Terry Romero","phone":"0-(885)281-9297","email":"tromero13@independent.co.uk","avatar":"cras.tiff"},
+            {"id":"0d94f953-83a4-421e-91dd-ea668be53a7a","name":"Elizabeth Gardner","phone":"8-(509)557-8596","email":"egardner14@businesswire.com","avatar":"cubilia curae.jpeg"},
+            {"id":"d4bdbd68-8bde-4ca8-945b-87c79210a00a","name":"Fred Schmidt","phone":"1-(898)059-4949","email":"fschmidt15@lycos.com","avatar":"cras in purus.tiff"},
+            {"id":"2ca71524-17e2-42e3-b5c3-6702cfdf99be","name":"James Wilson","phone":"2-(311)009-8125","email":"jwilson16@independent.co.uk","avatar":"ut massa volutpat.tiff"},
+            {"id":"a0cc04a6-efa2-4770-9327-cd2a69b07ed3","name":"Wanda Taylor","phone":"8-(114)995-0394","email":"wtaylor17@cam.ac.uk","avatar":"morbi odio.gif"},
+            {"id":"f9af1119-9aa4-4229-8a0c-004a4143bce7","name":"Juan James","phone":"7-(516)907-6370","email":"jjames18@shutterfly.com","avatar":"ac neque.gif"},
+            {"id":"5111841f-1082-4a40-9c20-012fe80091c3","name":"Phyllis Ramirez","phone":"2-(105)965-8783","email":"pramirez19@mtv.com","avatar":"pellentesque.jpeg"},
+            {"id":"8995d7a4-e0d9-4beb-9579-7eb9e149750b","name":"Anna West","phone":"4-(586)276-4386","email":"awest1a@blogs.com","avatar":"faucibus orci.gif"},
+            {"id":"97dd8ce1-f181-4a7b-aa6e-74753e97ced3","name":"Nicholas Snyder","phone":"3-(024)295-7232","email":"nsnyder1b@berkeley.edu","avatar":"praesent id massa.jpeg"},
+            {"id":"c3c46df1-3d3d-4d2a-a43e-c133fe0188cd","name":"Susan Vasquez","phone":"0-(950)727-6888","email":"svasquez1c@cam.ac.uk","avatar":"non interdum.jpeg"},
+            {"id":"0dd86eab-f05f-4b0f-992e-5e74ae41eb72","name":"Anna Warren","phone":"0-(610)729-5514","email":"awarren1d@nationalgeographic.com","avatar":"eu tincidunt in.gif"},
+            {"id":"90ebdcd9-e579-4fea-b1a9-bf3eace53795","name":"Juan Hawkins","phone":"1-(721)274-6604","email":"jhawkins1e@google.pl","avatar":"mi integer ac.tiff"},
+            {"id":"35006fb5-b8c9-4a43-9d1c-9997eac29166","name":"Debra Bell","phone":"5-(297)754-8355","email":"dbell1f@hao123.com","avatar":"ut dolor.png"},
+            {"id":"4e0be2d1-fd24-43bf-82cb-ed4da7511c03","name":"Thomas Henry","phone":"4-(547)337-7026","email":"thenry1g@bbc.co.uk","avatar":"mi pede malesuada.jpeg"},
+            {"id":"a8c23f2d-afc3-4148-a485-1e971a8e5942","name":"Jesse Gardner","phone":"5-(210)258-4286","email":"jgardner1h@usgs.gov","avatar":"pellentesque.tiff"},
+            {"id":"da9d0db2-029d-401a-adfe-a3a5e20dfefe","name":"Marie Stephens","phone":"0-(801)898-1752","email":"mstephens1i@kickstarter.com","avatar":"commodo placerat.gif"},
+            {"id":"ada2c228-311c-44fa-9601-51dce0487c9d","name":"Randy Freeman","phone":"3-(481)567-7891","email":"rfreeman1j@cnn.com","avatar":"fermentum donec.jpeg"},
+            {"id":"13c290a9-1b9b-42ab-92f1-bbacdfe54d4d","name":"Walter Bishop","phone":"5-(275)565-0032","email":"wbishop1k@washington.edu","avatar":"diam erat.gif"},
+            {"id":"73c9c83a-1a22-453b-821c-369cf5a3dc4a","name":"Jeffrey Wright","phone":"2-(893)287-1688","email":"jwright1l@nyu.edu","avatar":"aliquet.png"},
+            {"id":"73b2a83f-0bc7-481c-a47b-f143bd9d589c","name":"Anthony Lewis","phone":"3-(511)586-8794","email":"alewis1m@technorati.com","avatar":"lacus morbi.tiff"},
+            {"id":"5b709b51-a80b-4c78-9fbf-7b18cb8d43aa","name":"Doris Barnes","phone":"4-(557)963-9672","email":"dbarnes1n@lulu.com","avatar":"blandit non interdum.jpeg"},
+            {"id":"1ca5218b-8149-4cd5-abb3-4517cc9e849d","name":"Catherine Price","phone":"1-(312)374-9439","email":"cprice1o@fema.gov","avatar":"nam congue risus.gif"},
+            {"id":"f026224f-2c86-44a5-9fcc-4aadabe24cc2","name":"Daniel Hawkins","phone":"8-(745)141-1982","email":"dhawkins1p@wix.com","avatar":"ante ipsum primis.tiff"},
+            {"id":"064613e7-723c-4b30-abfe-9150511d7ddd","name":"Pamela Medina","phone":"8-(957)666-9441","email":"pmedina1q@bbc.co.uk","avatar":"erat eros.png"},
+            {"id":"0738194e-c751-4da2-8303-144f5fbb382d","name":"Ruby Harris","phone":"1-(105)211-7473","email":"rharris1r@geocities.com","avatar":"turpis enim blandit.tiff"},
+            {"id":"16e55f26-1de0-4d50-999b-e090b2067515","name":"Christine Tucker","phone":"1-(450)606-4680","email":"ctucker1s@engadget.com","avatar":"turpis.gif"},
+            {"id":"49b35f77-265d-42ef-9925-38fe881735b7","name":"Nicole Hall","phone":"6-(825)757-5755","email":"nhall1t@blog.com","avatar":"neque.jpeg"},
+            {"id":"ca9796e9-b1ff-40b0-aabc-2c8d6873665f","name":"Frank Porter","phone":"9-(247)522-6222","email":"fporter1u@artisteer.com","avatar":"phasellus id.jpeg"},
+            {"id":"29c59590-67e3-4c53-8412-88fbcdcc2757","name":"Mary Roberts","phone":"3-(819)082-1791","email":"mroberts1v@ow.ly","avatar":"est congue elementum.tiff"},
+            {"id":"51f6bbaa-ec7a-42dd-b348-62b0df08dab5","name":"Julie Murray","phone":"0-(217)968-1931","email":"jmurray1w@csmonitor.com","avatar":"posuere felis.jpeg"},
+            {"id":"6d33db92-9442-4a7d-a887-fd94d7e4af2e","name":"Ralph Medina","phone":"9-(727)131-3792","email":"rmedina1x@pen.io","avatar":"sem duis aliquam.tiff"},
+            {"id":"517fe53b-9d8c-414e-9df3-4867d05ae485","name":"Dennis Pierce","phone":"9-(755)810-5837","email":"dpierce1y@vistaprint.com","avatar":"aliquet at feugiat.tiff"},
+            {"id":"a373d6e1-ab1e-484c-8d43-954b96c3f5fb","name":"Louis Kelley","phone":"5-(866)811-1163","email":"lkelley1z@sourceforge.net","avatar":"pede ullamcorper augue.tiff"},
+            {"id":"82ceb0c2-780b-454c-8bb5-af3baa9c5345","name":"Gloria Little","phone":"0-(902)150-8671","email":"glittle20@nationalgeographic.com","avatar":"at.jpeg"},
+            {"id":"7c7aff8d-0881-4338-a69f-904776c26217","name":"Cheryl Watson","phone":"7-(329)622-4167","email":"cwatson21@shutterfly.com","avatar":"turpis adipiscing.jpeg"},
+            {"id":"16f1fd72-fcb7-4d9c-ad9c-88fe4fd0ac15","name":"Joseph Hunter","phone":"1-(825)142-7549","email":"jhunter22@yandex.ru","avatar":"ligula in lacus.jpeg"},
+            {"id":"0e50cac0-6534-4fb2-a308-f6244169ad41","name":"Ann Moore","phone":"7-(878)910-7218","email":"amoore23@fastcompany.com","avatar":"fusce.tiff"},
+            {"id":"7ecbbe24-edb2-4b0e-878c-6b636b0d51cf","name":"Elizabeth Thomas","phone":"9-(098)038-5375","email":"ethomas24@vimeo.com","avatar":"est.tiff"},
+            {"id":"05656240-54dc-4bb7-b98c-070ce2a1d1d1","name":"Joan Harvey","phone":"8-(542)507-6559","email":"jharvey25@hp.com","avatar":"nulla.jpeg"},
+            {"id":"964966b6-1fbf-4f10-8170-26d0ec5135be","name":"Daniel Reid","phone":"2-(918)025-2716","email":"dreid26@mysql.com","avatar":"tellus nulla ut.png"},
+            {"id":"ec5dd116-35d9-4d88-a73a-d6572fe3dbf8","name":"Gary Weaver","phone":"2-(723)391-1491","email":"gweaver27@linkedin.com","avatar":"montes.tiff"},
+            {"id":"2b4a319a-44bc-4862-84a0-08388198ae1b","name":"Daniel Freeman","phone":"5-(593)933-8184","email":"dfreeman28@marriott.com","avatar":"dapibus.jpeg"},
+            {"id":"757078ac-d4a6-48c2-bf8c-88ab82f22e17","name":"Marie Mcdonald","phone":"7-(673)629-9623","email":"mmcdonald29@noaa.gov","avatar":"risus semper.tiff"},
+            {"id":"2c3d50a1-7098-46cd-af3f-d088fbaa1fe3","name":"Lillian Barnes","phone":"3-(765)952-4603","email":"lbarnes2a@usnews.com","avatar":"ante vel.png"},
+            {"id":"96182aca-4afd-4b3f-86cf-e62a44e525a5","name":"Richard Thompson","phone":"6-(023)035-3842","email":"rthompson2b@multiply.com","avatar":"interdum.tiff"},
+            {"id":"48bad159-25a7-45f9-9cd6-78a05ba85f6d","name":"Ruth Wallace","phone":"5-(778)612-9239","email":"rwallace2c@prlog.org","avatar":"nisi.png"},
+            {"id":"fdf4af4f-fb7e-4bc0-8041-c5a50c9c6870","name":"Chris Armstrong","phone":"1-(901)595-8452","email":"carmstrong2d@wired.com","avatar":"eu.tiff"},
+            {"id":"a2396d26-6843-4e77-8a51-afe361f5d10c","name":"Cynthia Little","phone":"1-(721)695-8463","email":"clittle2e@jimdo.com","avatar":"blandit.png"},
+            {"id":"d269177c-243e-456f-9346-51aa3731bc1d","name":"Janice Edwards","phone":"0-(751)373-8963","email":"jedwards2f@hp.com","avatar":"aliquam.jpeg"},
+            {"id":"04be5f73-0df2-482d-b473-77460931978d","name":"Gregory Phillips","phone":"4-(111)808-8553","email":"gphillips2g@rediff.com","avatar":"quis.tiff"},
+            {"id":"6690f34a-c93d-459c-a6f9-20363150e223","name":"Carol Weaver","phone":"2-(463)339-2019","email":"cweaver2h@dailymotion.com","avatar":"aliquam convallis nunc.jpeg"},
+            {"id":"fcd58f40-273c-43ee-b24a-fab98d4e1dd4","name":"Rebecca Dixon","phone":"2-(856)740-9931","email":"rdixon2i@rediff.com","avatar":"nulla.tiff"},
+            {"id":"6b1bce98-3cce-4e69-9b2d-ca2d1feffb48","name":"Elizabeth Wheeler","phone":"8-(358)826-5282","email":"ewheeler2j@mysql.com","avatar":"interdum venenatis.tiff"},
+            {"id":"9af45a69-9f85-4cd8-8c8e-a8ebe931d9c1","name":"Kenneth Thomas","phone":"6-(174)083-3925","email":"kthomas2k@wp.com","avatar":"mauris lacinia.tiff"},
+            {"id":"d86015e3-09c0-4da1-ab9d-595a1cf6359d","name":"Janice Cooper","phone":"8-(578)741-5196","email":"jcooper2l@geocities.com","avatar":"praesent id.jpeg"},
+            {"id":"b1798d97-ba19-45ca-ba8f-405776b87f81","name":"Todd Flores","phone":"8-(569)046-9737","email":"tflores2m@sitemeter.com","avatar":"ut dolor.gif"},
+            {"id":"7df6865d-9d03-4447-aa7f-50485d0b8aa8","name":"Marilyn George","phone":"1-(905)683-5935","email":"mgeorge2n@blogtalkradio.com","avatar":"amet.jpeg"},
+            {"id":"a94df8e8-d7af-49f5-8f16-c5d042254a37","name":"Ruth Garrett","phone":"0-(745)510-8496","email":"rgarrett2o@live.com","avatar":"porta volutpat.jpeg"},
+            {"id":"056a71c7-c01a-4599-9520-c01135fd37e1","name":"Henry Young","phone":"1-(504)906-0196","email":"hyoung2p@cbslocal.com","avatar":"lorem integer tincidunt.jpeg"},
+            {"id":"b57668b3-d13f-4168-ac79-55eb4f745d43","name":"Lawrence Mitchell","phone":"2-(990)491-2425","email":"lmitchell2q@homestead.com","avatar":"sem sed sagittis.jpeg"},
+            {"id":"40333175-9163-4ce6-b36b-035065c7f652","name":"Frank Holmes","phone":"1-(885)651-2798","email":"fholmes2r@icio.us","avatar":"vitae nisl.jpeg"}];
 
         var myDetails =  {
             "id": contacts[Math.floor(Math.random() * (86 - 1)) + 1].id,
@@ -616,9 +112,15 @@ angular.module('rsms')
             "email": contacts[Math.floor(Math.random() * (86 - 1)) + 1]['email']
         };
 
-        var getContacts = function(){
+        var getContacts = function(spliceID){
 
             var deferred = $q.defer();
+
+            contacts.forEach(function(value, index){
+                if (spliceID === value.id){
+                    contacts.splice(index, 1);
+                }
+            });
 
             setTimeout(function() {
                 deferred.notify('About to greet ' + name + '.');
