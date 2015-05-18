@@ -5,8 +5,10 @@
 </head>
 
 <body ng-controller="AppController" layout="column">
-    <ng-include src="'client/templates/sidenav.ng.html'"></ng-include>
-    <md-toolbar md-scroll-shrink layout="row" class="main-navbar" layout-align="start center" layout-padding>
+
+    <!--<ng-include src="'client/templates/sidenav.ng.html'"></ng-include>-->
+
+    <!--<md-toolbar md-scroll-shrink layout="row" class="main-navbar" layout-align="start center" layout-padding>
         <md-button ng-click="toggleSidenav()"
                    class="md-secondary hamburger-menu">
             <i class="fa fa-bars"></i>
@@ -15,9 +17,11 @@
         <ng-include src="'client/templates/title.ng.html'"></ng-include>
         <span flex></span>
         <ng-include src="'client/templates/stats.ng.html'"></ng-include>
-    </md-toolbar>
-    <!--<md-content responsive-height>-->
-    <md-content layout-fill>
+    </md-toolbar>-->
+
+    <!--<md-content layout-fill>
         <div ui-view="main" responsive-height></div>
-    </md-content>
+    </md-content>-->
+
+    <div ui-view="main"></div>
 </body>

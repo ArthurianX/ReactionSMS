@@ -1,7 +1,7 @@
 angular.module('rsms',[
     'angular-meteor',
-    /*'famous.angular',*/
-    'ngMaterial',
+    'famous.angular',
+    /*'ngMaterial',*/
     'ui.router'
 ]);
 
